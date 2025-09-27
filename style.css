@@ -1,15 +1,10 @@
 /* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Arial', sans-serif;
-  color: white;
-  min-height: 100vh;
-  overflow-x: hidden;
+  color: #333;
+  line-height: 1.6;
 }
 
 /* Navbar */
@@ -21,14 +16,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
   z-index: 1000;
 }
 
-.logo {
-  font-size: 1.2rem;
-  font-weight: bold;
+.signature {
+  height: 40px;
 }
 
 .nav-links {
@@ -51,94 +45,82 @@ body {
   padding: 0.4rem 0.8rem;
   border: 1px solid #facc15;
   border-radius: 6px;
-  transition: 0.3s;
 }
 
 .resume-btn:hover {
   background: #facc15;
-  color: #0f172a;
+  color: #000;
 }
 
-/* Hero Section with Video */
+/* Parallax Hero */
 .hero {
   position: relative;
   height: 100vh;
+  background: url('background.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed; /* parallax effect */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: hidden;
-}
-
-#bg-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-  z-index: -2;
-}
-
-/* Blur/overlay effect */
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 23, 42, 0.5); /* dark overlay */
-  backdrop-filter: blur(3px); /* slight blur over video */
-  z-index: -1;
+  color: white;
 }
 
 .hero-content {
-  max-width: 700px;
-  padding: 1rem;
-  z-index: 1;
+  background: rgba(0,0,0,0.4);
+  padding: 2rem;
+  border-radius: 8px;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
 }
 
 .hero h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  color: #cbd5e1;
-  margin-bottom: 2rem;
+  font-size: 3rem;
+  margin: 0.5rem 0 1rem;
 }
 
 .highlight {
-  color: #60a5fa; /* blue */
+  color: #facc15;
 }
 
-.accent {
-  color: #facc15; /* yellow */
-}
-
-.buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.btn {
+.btn-outline {
   padding: 0.6rem 1.2rem;
-  background: #334155;
-  color: white;
+  border: 2px solid white;
   border-radius: 6px;
+  color: white;
   text-decoration: none;
   transition: background 0.3s, color 0.3s;
 }
 
+.btn-outline:hover {
+  background: white;
+  color: #000;
+}
+
+/* Sections */
+.sections {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.sections section {
+  margin-bottom: 3rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: #333;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
 .btn:hover {
   background: #facc15;
-  color: #0f172a;
+  color: #000;
 }

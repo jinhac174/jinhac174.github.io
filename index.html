@@ -10,35 +10,48 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">jinhac174.github.io</div>
+    <div class="logo">
+      <img src="signature.png" alt="Signature" class="signature">
+    </div>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li><a href="CV.pdf" target="_blank" class="resume-btn">Resume</a></li>
     </ul>
   </nav>
 
-  <!-- Hero Section with Video Background -->
-  <section class="hero">
-    <video autoplay muted loop playsinline id="bg-video">
-      <source src="background.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
-    <div class="overlay"></div>
-
+  <!-- Hero Section with Parallax -->
+  <header class="hero parallax">
     <div class="hero-content">
-      <h1>Hi, I'm <span class="highlight">Jinha Choi</span></h1>
-      <h2>I am a <span class="accent">researcher & developer</span></h2>
-      <p>Undergraduate student at Yonsei University with a passion for building impactful and innovative projects.</p>
-      <div class="buttons">
-        <a href="mailto:danielc174@yonsei.ac.kr" class="btn">Email Me</a>
-        <a href="https://github.com/jinhac174" target="_blank" class="btn">GitHub</a>
-        <a href="https://linkedin.com/in/yourlinkedin" target="_blank" class="btn">LinkedIn</a>
-      </div>
+      <h1>Welcome to Life of</h1>
+      <h2><span class="highlight">Jinha Choi</span></h2>
+      <a href="about.html" class="btn-outline">About me</a>
     </div>
-  </section>
+  </header>
+
+  <!-- Main Sections -->
+  <main class="sections">
+    <section>
+      <h3>My Research</h3>
+      <p>Explore my academic and research interests in robotics, AI, and biology.</p>
+      <a href="research.html" class="btn">View More</a>
+    </section>
+
+    <section>
+      <h3>Projects</h3>
+      <p>Hands-on projects and experiments that I’ve built along the way.</p>
+      <a href="projects.html" class="btn">See Projects</a>
+    </section>
+
+    <section>
+      <h3>Contact</h3>
+      <p>Want to connect? Reach out via email or social links.</p>
+      <a href="contact.html" class="btn">Get in Touch</a>
+    </section>
+  </main>
 
 </body>
 </html>
