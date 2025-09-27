@@ -8,20 +8,48 @@
 </head>
 <body>
 
+  <!-- Signature -->
   <img src="assets/signature.png" alt="Signature" class="signature">
+
   <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-center">
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="yonsei.html">Yonsei</a></li>
-        <li><a href="life.html">Life</a></li>
-        <li><a href="contacts.html">Contacts</a></li>
+
+        <li class="dropdown">
+          <a href="research.html">Research</a>
+          <ul class="dropdown-menu">
+            <li><a href="research.html#robotics">Robotics</a></li>
+            <li><a href="research.html#biology">Biology</a></li>
+            <li><a href="research.html#ai">AI</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="yonsei.html">Yonsei</a>
+          <ul class="dropdown-menu">
+            <li><a href="yonsei.html#courses">Courses</a></li>
+            <li><a href="yonsei.html#projects">Projects</a></li>
+            <li><a href="yonsei.html#life">Campus Life</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="life.html">Life</a>
+          <ul class="dropdown-menu">
+            <li><a href="life.html#food">Food & Whiskey</a></li>
+            <li><a href="life.html#travel">Travel</a></li>
+            <li><a href="life.html#hobbies">Hobbies</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#contacts">Contacts</a></li>
       </ul>
     </div>
 
+    <!-- Social Icons -->
     <div class="nav-right">
       <a href="https://instagram.com/daniel.c.hoi" target="_blank">
         <img src="assets/instagram.png" alt="Instagram" class="social-icon">
@@ -32,43 +60,97 @@
     </div>
   </nav>
 
-
-  <!-- Hero Section with Parallax -->
+  <!-- Hero Section -->
   <header class="hero parallax">
     <img src="assets/JinhaChoi.png" alt="Jinha Choi" class="center-logo">
   </header>
+
   <!-- About Section -->
   <section id="about" class="about-section">
-    <h2>About Me</h2>
-    <p>Write your introduction here... background, journey, etc.</p>
+    <div class="about-header">
+      <div class="about-photo">
+        <img src="assets/jinha.jpg" alt="Jinha Choi">
+      </div>
+      <p class="intro">
+        Hello! I’m <strong>Jinha Choi</strong>. Here’s a little about my journey so far.
+      </p>
+    </div>
+
+    <div class="timeline">
+      <!-- Milestone 1 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Early Life</h3>
+          <p>Where I grew up, key experiences, early interests.</p>
+        </div>
+      </div>
+
+      <!-- Milestone 2 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Yonsei University</h3>
+          <p>Studies, research, projects, and growth at Yonsei.</p>
+        </div>
+      </div>
+
+      <!-- Milestone 3 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Research</h3>
+          <p>Robotics, reinforcement learning, and biology work.</p>
+        </div>
+      </div>
+
+      <!-- Milestone 4 (Present) -->
+      <div class="timeline-item present">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Present</h3>
+          <p>Current goals, passions, and vision for the future.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Main Sections -->
-  <main class="sections">
-    <section>
-      <h3>My Research</h3>
-      <p>Explore my academic and research interests in robotics, AI, and biology.</p>
-      <a href="research.html" class="btn">View More</a>
-    </section>
+  <!-- Contacts Section -->
+  <section id="contacts" class="contacts-section">
+    <h2>Contacts</h2>
+    <p>Get in touch with me...</p>
+  </section>
 
-    <section>
-      <h3>Yonsei</h3>
-      <p>Insights and experiences from my academic life at Yonsei University.</p>
-      <a href="yonsei.html" class="btn">Explore Yonsei</a>
-    </section>
+  <script>
+    // If page is loaded with a hash (like #about), remove it and reload top
+    if (window.location.hash) {
+      window.location.replace(window.location.pathname);
+    }
+  </script>
+  <script>
+    // Enable click-to-toggle for dropdowns
+    document.querySelectorAll(".dropdown > a").forEach(dropToggle => {
+      dropToggle.addEventListener("click", function(e) {
+        e.preventDefault(); // stop default link jump
+        const parent = this.parentElement;
 
-    <section>
-      <h3>Life</h3>
-      <p>Food, whiskey, travel, and personal reflections.</p>
-      <a href="life.html" class="btn">Discover More</a>
-    </section>
+        // close any other open dropdowns
+        document.querySelectorAll(".dropdown").forEach(d => {
+          if (d !== parent) d.classList.remove("open");
+        });
 
-    <section>
-      <h3>Contacts</h3>
-      <p>Want to connect? Reach out via email or social links.</p>
-      <a href="contacts.html" class="btn">Get in Touch</a>
-    </section>
-  </main>
+        // toggle current one
+        parent.classList.toggle("open");
+      });
+    });
+
+    // close dropdowns if click outside
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".dropdown")) {
+        document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("open"));
+      }
+    });
+  </script>
 
 </body>
 </html>
