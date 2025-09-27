@@ -1,102 +1,132 @@
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth;   /* smooth scroll effect */
+}
+
 body {
   font-family: 'Arial', sans-serif;
   color: #333;
   line-height: 1.6;
 }
 
-/* Navbar */
+/* Signature floats independently */
+.signature {
+  position: absolute;
+  top: 30px;           /* lock to very top */
+  left: 50px;       /* indent from left */
+  height: 130px;    /* scale freely */
+  width: auto;
+  object-fit: contain;
+  z-index: 1100;    /* above navbar */
+}
+
+/* Navbar is spaced lower */
 .navbar {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 30px;       
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;   /* keep central anchor */
   align-items: center;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px);
+  background: none;
   z-index: 1000;
 }
 
-.signature {
-  height: 40px;
+/* center links */
+.nav-center {
+  position: absolute;        /* detach from flex flow */
+  left: 50%;
+  transform: translateX(-50%);  /* force dead center */
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
-  color: white;
+  display: inline-block;             /* allows transform to work */
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #222;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: transform 0.2s ease;  /* include transform */
 }
 
-.nav-links a:hover {
-  color: #facc15; /* yellow */
+.nav-links a:hover {        
+  transform: scale(1.1);   /* smooth magnify */
 }
 
+.nav-right {
+  margin-left: auto;         /* stays far right */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 20px;
+}
+
+.social-icon {
+  height: 26px;
+  width: 26px;
+  object-fit: contain;
+  background-color: transparent !important;  /* force transparency */
+  border: none !important;
+  box-shadow: none !important;
+  display: inline-block;
+}
+
+
+/* optional hover styling */
+.social-icon:hover {
+  transform: scale(1.1);  /* zooms a little */
+  opacity: 0.8;           /* fades slightly */
+}
+
+
+
+
+/* Active page underline */
+.nav-links a.active {
+  border-bottom: 2px solid #000;
+  padding-bottom: 2px;
+}
+
+/* Resume button same style as links */
 .resume-btn {
-  padding: 0.4rem 0.8rem;
-  border: 1px solid #facc15;
-  border-radius: 6px;
+  border: none;
+  background: none;
+  font-weight: bold;
+  color: #222;
 }
 
-.resume-btn:hover {
-  background: #facc15;
-  color: #000;
-}
-
-/* Parallax Hero */
+/* Hero with parallax background */
 .hero {
   position: relative;
   height: 100vh;
-  background: url('background.jpg') no-repeat center center;
+  background: url('assets/background.jpg') no-repeat center center;
   background-size: cover;
-  background-attachment: fixed; /* parallax effect */
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
+  align-items: flex-start;
+  padding-top: 200px;   /* position logo below navbar */
+  overflow: hidden;
 }
 
-.hero-content {
-  background: rgba(0,0,0,0.4);
-  padding: 2rem;
-  border-radius: 8px;
-}
-
-.hero h1 {
-  font-size: 2rem;
-}
-
-.hero h2 {
-  font-size: 3rem;
-  margin: 0.5rem 0 1rem;
-}
-
-.highlight {
-  color: #facc15;
-}
-
-.btn-outline {
-  padding: 0.6rem 1.2rem;
-  border: 2px solid white;
-  border-radius: 6px;
-  color: white;
-  text-decoration: none;
-  transition: background 0.3s, color 0.3s;
-}
-
-.btn-outline:hover {
-  background: white;
-  color: #000;
+/* Centered PNG logo */
+.center-logo {
+  max-width: 350px;
+  width: 60%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Sections */
