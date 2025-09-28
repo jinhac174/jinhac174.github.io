@@ -1,8 +1,14 @@
-/* Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ===========================
+   GLOBAL RESET & BASE STYLES
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 html {
-  scroll-behavior: smooth;   /* smooth scroll effect */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -11,102 +17,92 @@ body {
   line-height: 1.6;
 }
 
-/* Signature floats independently */
+/* ===========================
+   SIGNATURE
+=========================== */
 .signature {
   position: absolute;
-  top: 30px;           /* lock to very top */
-  left: 50px;       /* indent from left */
-  height: 130px;    /* scale freely */
+  top: 30px;
+  left: 50px;
+  height: 130px;
   width: auto;
   object-fit: contain;
-  z-index: 1100;    /* above navbar */
+  z-index: 1100; /* above navbar */
 }
 
-/* Navbar is spaced lower */
+/* ===========================
+   NAVBAR
+=========================== */
 .navbar {
   position: absolute;
-  top: 30px;       
+  top: 30px;
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: center;   /* keep central anchor */
+  justify-content: center;
   align-items: center;
   background: none;
   z-index: 1000;
 }
 
-/* center links */
 .nav-center {
-  position: absolute;        /* detach from flex flow */
+  position: absolute;
   left: 50%;
-  transform: translateX(-50%);  /* force dead center */
+  transform: translateX(-50%);
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
-  margin: 0;
-  padding: 0;
 }
 
 .nav-links a {
-  display: inline-block;             /* allows transform to work */
-  font-family: 'Arial', sans-serif;
   font-weight: bold;
   font-size: 18px;
   color: #222;
   text-decoration: none;
-  transition: transform 0.2s ease;  /* include transform */
+  transition: transform 0.2s ease;
 }
 
-.nav-links a:hover {        
-  transform: scale(1.1);   /* smooth magnify */
+.nav-links a:hover {
+  transform: scale(1.1);
 }
 
-.nav-right {
-  margin-left: auto;         /* stays far right */
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-right: 20px;
-}
-
-.social-icon {
-  height: 26px;
-  width: 26px;
-  object-fit: contain;
-  background-color: transparent !important;  /* force transparency */
-  border: none !important;
-  box-shadow: none !important;
-  display: inline-block;
-}
-
-
-/* optional hover styling */
-.social-icon:hover {
-  transform: scale(1.1);  /* zooms a little */
-  opacity: 0.8;           /* fades slightly */
-}
-
-
-
-
-/* Active page underline */
 .nav-links a.active {
   border-bottom: 2px solid #000;
   padding-bottom: 2px;
 }
 
-/* Resume button same style as links */
-.resume-btn {
-  border: none;
-  background: none;
-  font-weight: bold;
-  color: #222;
+.nav-right {
+  margin-left: auto;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* Hero with parallax background */
+/* ===========================
+   SOCIAL ICONS (shared)
+=========================== */
+.social-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  display: inline-block;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* ===========================
+   HERO SECTIONS
+=========================== */
+
+/* Homepage hero (background.jpg) */
 .hero {
   position: relative;
   height: 100vh;
@@ -116,29 +112,244 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 250px;   /* position logo below navbar */
+  padding-top: 250px; /* push logo down */
   overflow: hidden;
 }
 
-/* Centered PNG logo */
 .center-logo {
   max-width: 350px;
   width: 60%;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Research page hero (humanoid.jpg) */
+.research-hero {
+  position: relative;
+  height: 100vh;
+  background: url("assets/humanoid.jpg") no-repeat center 120px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 180px;
+  text-align: center;
+}
+
+.research-logo {
+  position: absolute;
+  bottom: 100px;
+  left: 130px;
+  max-width: 300px;
+  width: 20vw;
   height: auto;
   z-index: 1;
   pointer-events: none;
 }
 
-/* Sections */
-.sections {
+/* Yonsei page hero (yonsei.jpg) */
+.yonsei-hero {
+  position: relative;
+  height: 100vh;
+  background: url("assets/yonsei.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 180px;
+}
+
+.yonsei-logo {
+  position: absolute;
+  bottom: 100px;
+  left: 130px;
+  max-width: 300px;
+  width: 20vw;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Life page hero (life.jpg) */
+.life-hero {
+  position: relative;
+  height: 100vh;
+  background: url("assets/life.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 180px;
+}
+
+.life-logo {
+  position: absolute;
+  bottom: 100px;
+  left: 130px;
+  max-width: 200px;
+  width: 20vw;
+  height: auto;
+  pointer-events: none;
+}
+
+/* ===========================
+   PAGE SECTIONS
+=========================== */
+.page-section {
   padding: 4rem 2rem;
+  max-width: 900px;
+  margin: auto;
   text-align: center;
 }
 
-.sections section {
-  margin-bottom: 3rem;
+/* About Section */
+.about-section {
+  padding: 6rem 2rem;
+  background: #f9f9f9;
+  text-align: center;
 }
 
+.about-photo img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* ===========================
+   TIMELINE
+=========================== */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  padding-left: 20px;
+  border-left: 3px solid #ddd;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 30px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -11px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  background: #333;
+  border-radius: 50%;
+  border: 3px solid #f9f9f9;
+}
+
+.timeline-content {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.timeline-item.present .timeline-dot {
+  background: #facc15;
+}
+
+.timeline-item.present .timeline-content {
+  border: 2px solid #facc15;
+}
+
+/* ===========================
+   DROPDOWN MENU
+=========================== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 10px);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  text-align: center;
+  z-index: 2000;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.dropdown-menu li {
+  min-width: 160px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  color: #222;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.dropdown-menu a:hover {
+  transform: scale(1.05);
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+/* ===========================
+   CONTACTS SECTION
+=========================== */
+.contacts-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.contacts-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.email-link {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #222;
+  text-decoration: none;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
 .btn {
   display: inline-block;
   margin-top: 1rem;
@@ -155,115 +366,59 @@ body {
   color: #000;
 }
 
-.about-section {
-  padding: 6rem 2rem;
-  background: #f9f9f9;
-}
-
-.about-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.about-photo img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  margin-bottom: 1rem;
-}
-
-.intro {
-  font-size: 1.2rem;
-  color: #333;
-  max-width: 700px;
-  margin: auto;
-}
-
-/* Timeline container */
-.timeline {
+/* ===========================
+   FOOTER
+=========================== */
+.footer {
+  background: url("assets/footer.jpg") no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  min-height: 300px;
   position: relative;
-  max-width: 800px;
-  margin: auto;
-  padding-left: 20px;
-  border-left: 3px solid #ddd;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Timeline items */
-.timeline-item {
-  position: relative;
-  margin-bottom: 3rem;
-  padding-left: 30px;
-}
-
-.timeline-dot {
+.footer-overlay {
   position: absolute;
-  left: -11px; /* aligns with line */
-  top: 5px;
-  width: 20px;
-  height: 20px;
-  background: #333;
-  border-radius: 50%;
-  border: 3px solid #f9f9f9; /* white border effect */
+  top: 0; left: 0; right: 0; bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 20%;
 }
 
-.timeline-content {
-  background: #fff;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+.footer-left .footer-logo {
+  height: 80px;
+  width: auto;
 }
 
-.timeline-item.present .timeline-dot {
-  background: #facc15; /* yellow highlight for present */
-}
-
-.timeline-item.present .timeline-content {
-  border: 2px solid #facc15;
-}
-
-/* Dropdown container */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown menu hidden initially */
-.dropdown-menu {
-  display: none;
+.footer-center {
   position: absolute;
-  top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  list-style: none;
-  margin: 0;
-  padding: 0.5rem 0;
-  z-index: 2000;
-  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;   /* bolder */
+  color: #000;        /* true black for contrast */
 }
 
-/* Dropdown links */
-.dropdown-menu li {
-  min-width: 160px;
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
 }
 
-.dropdown-menu a {
-  display: block;
-  padding: 0.5rem 1rem;
-  font-size: 16px;
-  font-weight: normal;
-  color: #222;
-  text-decoration: none;
-  background: none;
-  transition: transform 0.2s;
+.footer-right .social-icons {
+  display: flex;
+  gap: 16px;
 }
 
-.dropdown-menu a:hover {
-  transform: scale(1.05);
-}
-
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-menu {
-  display: block;
+.footer-right .footer-email {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
 }

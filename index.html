@@ -4,7 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jinha Choi | Personal Website</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
+
+  <!-- Smooth scroll -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
 
@@ -15,37 +22,44 @@
   <nav class="navbar">
     <div class="nav-center">
       <ul class="nav-links">
+        <!-- Home -->
         <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
 
+        <!-- About (scrolls on index) -->
+        <li><a href="#about" onclick="scrollToSection(event, 'about')">About</a></li>
+
+        <!-- Research -->
         <li class="dropdown">
           <a href="research.html">Research</a>
           <ul class="dropdown-menu">
-            <li><a href="research.html#robotics">Robotics</a></li>
-            <li><a href="research.html#biology">Biology</a></li>
-            <li><a href="research.html#ai">AI</a></li>
+            <li><a href="research.html#publications">Publications</a></li>
+            <li><a href="research.html#interests">Interests</a></li>
+            <li><a href="research.html#experience">Experience</a></li>
           </ul>
         </li>
 
+        <!-- Yonsei -->
         <li class="dropdown">
           <a href="yonsei.html">Yonsei</a>
           <ul class="dropdown-menu">
+            <li><a href="yonsei.html#campus-life">Campus Life</a></li>
             <li><a href="yonsei.html#courses">Courses</a></li>
-            <li><a href="yonsei.html#projects">Projects</a></li>
-            <li><a href="yonsei.html#life">Campus Life</a></li>
+            <li><a href="yonsei.html#awards">Awards</a></li>
           </ul>
         </li>
 
+        <!-- Life -->
         <li class="dropdown">
           <a href="life.html">Life</a>
           <ul class="dropdown-menu">
             <li><a href="life.html#food">Food & Whiskey</a></li>
             <li><a href="life.html#travel">Travel</a></li>
-            <li><a href="life.html#hobbies">Hobbies</a></li>
+            <li><a href="life.html#soccer">Soccer</a></li>
           </ul>
         </li>
 
-        <li><a href="#contacts">Contacts</a></li>
+        <!-- Contacts (scrolls on index) -->
+        <li><a href="#contacts" onclick="scrollToSection(event, 'contacts')">Contacts</a></li>
       </ul>
     </div>
 
@@ -59,6 +73,7 @@
       </a>
     </div>
   </nav>
+
 
   <!-- Hero Section -->
   <header class="hero parallax">
@@ -75,82 +90,109 @@
         Hello! I’m <strong>Jinha Choi</strong>. Here’s a little about my journey so far.
       </p>
     </div>
-
-    <div class="timeline">
-      <!-- Milestone 1 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>Early Life</h3>
-          <p>Where I grew up, key experiences, early interests.</p>
-        </div>
-      </div>
-
-      <!-- Milestone 2 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>Yonsei University</h3>
-          <p>Studies, research, projects, and growth at Yonsei.</p>
-        </div>
-      </div>
-
-      <!-- Milestone 3 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>Research</h3>
-          <p>Robotics, reinforcement learning, and biology work.</p>
-        </div>
-      </div>
-
-      <!-- Milestone 4 (Present) -->
-      <div class="timeline-item present">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>Present</h3>
-          <p>Current goals, passions, and vision for the future.</p>
-        </div>
-      </div>
-    </div>
+    <!-- timeline here -->
   </section>
 
   <!-- Contacts Section -->
   <section id="contacts" class="contacts-section">
-    <h2>Contacts</h2>
-    <p>Get in touch with me...</p>
+    <h2>Get in Touch</h2>
+
+    <!-- Direct Email -->
+    <p>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jinhac174@gmail.com" target="_blank" class="email-link">
+        jinhac174@gmail.com
+      </a>
+    </p>
+
+    <!-- Social Icons -->
+    <div class="social-links">
+      <a href="https://instagram.com/daniel.c.hoi" target="_blank">
+        <img src="assets/instagram.png" alt="Instagram" class="social-icon">
+      </a>
+      <a href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank">
+        <img src="assets/linkedin.png" alt="LinkedIn" class="social-icon">
+      </a>
+      <a href="https://github.com/jinhac174" target="_blank">
+        <img src="assets/github.svg" alt="GitHub" class="social-icon">
+      </a>
+    </div>
+
+    <!-- Download CV -->
+    <div class="contact-buttons">
+      <a href="CV.pdf" target="_blank" class="btn">CV</a>
+    </div>
   </section>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-overlay">
+      
+      <!-- Left: Signature -->
+      <div class="footer-left">
+        <img src="assets/signature.png" alt="Signature" class="footer-logo">
+      </div>
+
+      <!-- Center: Copyright -->
+      <div class="footer-center">
+        <p>© 2025 Jinha Choi</p>
+      </div>
+
+      <!-- Right: Socials + Email -->
+      <div class="footer-right">
+        <div class="social-icons">
+          <a href="https://instagram.com/daniel.c.hoi" target="_blank">
+            <img src="assets/instagram.png" alt="Instagram" class="social-icon">
+          </a>
+          <a href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank">
+            <img src="assets/linkedin.png" alt="LinkedIn" class="social-icon">
+          </a>
+        </div>
+        <p class="footer-email">jinhac174@gmail.com</p>
+      </div>
+
+    </div>
+  </footer>
+
   <script>
-    // If page is loaded with a hash (like #about), remove it and reload top
-    if (window.location.hash) {
-      window.location.replace(window.location.pathname);
+    function scrollToSection(event, id) {
+      event.preventDefault();
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+      // ❌ don’t remove hash here, or cross-page links break
     }
-  </script>
-  <script>
-    // Enable click-to-toggle for dropdowns
-    document.querySelectorAll(".dropdown > a").forEach(dropToggle => {
-      dropToggle.addEventListener("click", function(e) {
-        e.preventDefault(); // stop default link jump
-        const parent = this.parentElement;
 
-        // close any other open dropdowns
-        document.querySelectorAll(".dropdown").forEach(d => {
-          if (d !== parent) d.classList.remove("open");
-        });
-
-        // toggle current one
-        parent.classList.toggle("open");
-      });
-    });
-
-    // close dropdowns if click outside
-    document.addEventListener("click", function(e) {
-      if (!e.target.closest(".dropdown")) {
-        document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("open"));
+    // On page load, if there’s a hash (e.g. index.html#about), scroll smoothly
+    window.addEventListener("load", () => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const section = document.getElementById(id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
       }
     });
+
+    // Prevent browser restoring old scroll
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // Prevent browser restoring old scroll
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // Only scroll to top if there's no hash
+    window.addEventListener('load', () => {
+      if (!window.location.hash) {
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 50); // allow page render first
+      }
+    });
+
   </script>
+
+
 
 </body>
 </html>
