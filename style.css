@@ -54,26 +54,96 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 2.5rem;
 }
 
-.nav-links a {
+/* ---------------------------
+   Top-level nav links
+--------------------------- */
+.nav-links > li > a {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 18px;          /* base size */
+  line-height: 1;
   color: #222;
   text-decoration: none;
-  transition: transform 0.2s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-block;
 }
 
-.nav-links a:hover {
-  transform: scale(1.1);
+/* Active page = larger and stable */
+.nav-links > li > a.active {
+  transform: scale(1.5);    /* bigger than hover */
+  color: #000;
+  pointer-events: none;     /* prevents hover shrinking */
 }
 
-.nav-links a.active {
-  border-bottom: 2px solid #000;
-  padding-bottom: 2px;
+/* Hover effect for inactive pages only */
+.nav-links > li > a:not(.active):hover {
+  transform: scale(1.15);
 }
 
+/* ---------------------------
+   Dropdown menu
+--------------------------- */
+.dropdown {
+  position: relative;
+}
+
+/* Show menu when hovering over parent */
+.dropdown:hover > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+/* Keep parent link magnified while hovering dropdown */
+.dropdown:hover > a {
+  transform: scale(1.15);
+}
+
+/* If parent is also active, keep its larger scale */
+.dropdown:hover > a.active {
+  transform: scale(1.5);
+}
+
+.dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 10px);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  text-align: center;
+  z-index: 2000;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.dropdown-menu li {
+  min-width: 160px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.4rem 0.8rem;
+  font-size: 14px;    /* smaller than navbar */
+  font-weight: normal;
+  color: #222;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.dropdown-menu a:hover {
+  transform: scale(1.08);
+}
+
+/* ---------------------------
+   Social icons in nav
+--------------------------- */
 .nav-right {
   margin-left: auto;
   margin-right: 20px;
@@ -151,25 +221,24 @@ body {
 
 /* Yonsei page hero */
 .yonsei-hero {
-    position: relative;
-    height: 100vh;
-    background: url("assets/yonsei.jpg") no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* stick to top area */
-    padding-top: 230px;      /* adjust vertical offset */
+  position: relative;
+  height: 100vh;
+  background: url("assets/yonsei.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* stick to top area */
+  padding-top: 230px;      /* adjust vertical offset */
 }
 
-/* Yonsei logo (centered horizontally, pushed down slightly) */
+/* Yonsei logo */
 .yonsei-logo {
-    max-width: 280px;
-    width: 60%;
-    height: auto;
-    pointer-events: none;
+  max-width: 280px;
+  width: 60%;
+  height: auto;
+  pointer-events: none;
 }
-
 
 /* Life page hero (life.jpg) */
 .life-hero {
@@ -270,51 +339,6 @@ body {
 }
 
 /* ===========================
-   DROPDOWN MENU
-=========================== */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  opacity: 0;
-  visibility: hidden;
-  transform: translate(-50%, 10px);
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  list-style: none;
-  margin: 0;
-  padding: 0.5rem 0;
-  text-align: center;
-  z-index: 2000;
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-}
-
-.dropdown-menu li {
-  min-width: 160px;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 0.5rem 1rem;
-  font-size: 16px;
-  color: #222;
-  text-decoration: none;
-  transition: transform 0.2s;
-}
-
-.dropdown-menu a:hover {
-  transform: scale(1.05);
-}
-
-.dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, 0);
-}
-
-/* ===========================
    CONTACTS SECTION
 =========================== */
 .contacts-section {
@@ -374,7 +398,6 @@ body {
   width: 100%;
   min-height: 300px;
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -383,7 +406,6 @@ body {
 .footer-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -400,8 +422,8 @@ body {
   left: 50%;
   transform: translateX(-50%);
   font-size: 1rem;
-  font-weight: 600;   /* bolder */
-  color: #000;        /* true black for contrast */
+  font-weight: 600;
+  color: #000;
 }
 
 .footer-right {
