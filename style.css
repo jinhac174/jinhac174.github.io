@@ -140,37 +140,36 @@ body {
 
 .research-logo {
   position: absolute;
-  bottom: 100px;
-  left: 130px;
-  max-width: 300px;
+  bottom: 150px;
+  left: 170px;
+  max-width: 350px;
   width: 20vw;
   height: auto;
   z-index: 1;
   pointer-events: none;
 }
 
-/* Yonsei page hero (yonsei.jpg) */
+/* Yonsei page hero */
 .yonsei-hero {
-  position: relative;
-  height: 100vh;
-  background: url("assets/yonsei.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 180px;
+    position: relative;
+    height: 100vh;
+    background: url("assets/yonsei.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* stick to top area */
+    padding-top: 230px;      /* adjust vertical offset */
 }
 
+/* Yonsei logo (centered horizontally, pushed down slightly) */
 .yonsei-logo {
-  position: absolute;
-  bottom: 100px;
-  left: 130px;
-  max-width: 300px;
-  width: 20vw;
-  height: auto;
-  pointer-events: none;
+    max-width: 280px;
+    width: 60%;
+    height: auto;
+    pointer-events: none;
 }
+
 
 /* Life page hero (life.jpg) */
 .life-hero {
@@ -189,7 +188,7 @@ body {
   position: absolute;
   bottom: 100px;
   left: 130px;
-  max-width: 200px;
+  max-width: 180px;
   width: 20vw;
   height: auto;
   pointer-events: none;

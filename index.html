@@ -22,11 +22,15 @@
   <nav class="navbar">
     <div class="nav-center">
       <ul class="nav-links">
-        <!-- Home -->
-        <li><a href="index.html" class="active">Home</a></li>
 
-        <!-- About (scrolls on index) -->
-        <li><a href="#about" onclick="scrollToSection(event, 'about')">About</a></li>
+        <!-- Home Dropdown -->
+        <li class="dropdown">
+          <a href="index.html" class="active">Home</a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contacts">Contacts</a></li>
+          </ul>
+        </li>
 
         <!-- Research -->
         <li class="dropdown">
@@ -58,8 +62,6 @@
           </ul>
         </li>
 
-        <!-- Contacts (scrolls on index) -->
-        <li><a href="#contacts" onclick="scrollToSection(event, 'contacts')">Contacts</a></li>
       </ul>
     </div>
 
@@ -73,6 +75,7 @@
       </a>
     </div>
   </nav>
+
 
 
   <!-- Hero Section -->
@@ -155,43 +158,39 @@
 
   <script>
     function scrollToSection(event, id) {
-      event.preventDefault();
-      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-      // ❌ don’t remove hash here, or cross-page links break
-    }
-
-    // On page load, if there’s a hash (e.g. index.html#about), scroll smoothly
-    window.addEventListener("load", () => {
-      if (window.location.hash) {
-        const id = window.location.hash.substring(1);
+        event.preventDefault();
         const section = document.getElementById(id);
         if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
+            section.scrollIntoView({ behavior: "smooth" });
         }
-      }
-    });
-
-    // Prevent browser restoring old scroll
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
+        // Keep hash only while navigating inside this page
+        // Do not clear it here, or cross-page links break
     }
 
     // Prevent browser restoring old scroll
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
     }
 
-    // Only scroll to top if there's no hash
-    window.addEventListener('load', () => {
-      if (!window.location.hash) {
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 50); // allow page render first
-      }
+    // Handle page load
+    window.addEventListener("load", () => {
+        if (window.location.hash) {
+            // If there’s a hash (#about, #contacts), scroll smoothly
+            const id = window.location.hash.substring(1);
+            const section = document.getElementById(id);
+            if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+            }
+            // Then clear hash so refresh always resets to top
+            history.replaceState(null, null, window.location.pathname);
+        } else {
+            // No hash → always scroll to top on refresh
+            setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }, 50);
+        }
     });
-
   </script>
-
 
 
 </body>
