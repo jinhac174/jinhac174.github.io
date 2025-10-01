@@ -1,18 +1,11 @@
 /* ===========================
    GLOBAL RESET & BASE STYLES
 =========================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   color: #333;
   line-height: 1.6;
 }
@@ -22,12 +15,10 @@ body {
 =========================== */
 .signature {
   position: absolute;
-  top: 30px;
-  left: 50px;
-  height: 130px;
-  width: auto;
+  top: 30px; left: 50px;
+  height: 50px;
   object-fit: contain;
-  z-index: 1100; /* above navbar */
+  z-index: 1100;
 }
 
 /* ===========================
@@ -35,339 +26,133 @@ body {
 =========================== */
 .navbar {
   position: absolute;
-  top: 30px;
-  width: 100%;
+  top: 30px; width: 100%;
   padding: 1rem 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex; justify-content: center; align-items: center;
   background: none;
   z-index: 1000;
 }
-
 .nav-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  position: absolute; left: 50%; transform: translateX(-50%);
 }
-
 .nav-links {
   list-style: none;
-  display: flex;
-  gap: 2.5rem;
+  display: flex; gap: 2.5rem;
 }
-
-/* ---------------------------
-   Top-level nav links
---------------------------- */
 .nav-links > li > a {
-  font-weight: bold;
-  font-size: 18px;          /* base size */
-  line-height: 1;
-  color: #222;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  transition: transform 0.3s ease, color 0.3s ease;
   display: inline-block;
+  padding: 0.5rem 1rem;
+  font: bold 18px/1 Arial, sans-serif;
+  color: #222; text-decoration: none;
+  border-radius: 10px;
+  transition: transform 0.3s, color 0.3s;
 }
-
-/* Active page = larger and stable */
 .nav-links > li > a.active {
-  transform: scale(1.5);    /* bigger than hover */
-  color: #000;
-  pointer-events: none;     /* prevents hover shrinking */
+  transform: scale(1.35); color: #000;
+  pointer-events: none;
 }
+.nav-links > li > a:not(.active):hover { transform: scale(1.15); }
 
-/* Hover effect for inactive pages only */
-.nav-links > li > a:not(.active):hover {
-  transform: scale(1.15);
-}
-
-/* ---------------------------
-   Dropdown menu
---------------------------- */
-.dropdown {
-  position: relative;
-}
-
-/* Show menu when hovering over parent */
+/* Dropdown */
+.dropdown { position: relative; }
 .dropdown:hover > .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, 0);
+  opacity: 1; visibility: visible; transform: translate(-50%,0);
 }
-
-/* Keep parent link magnified while hovering dropdown */
-.dropdown:hover > a {
-  transform: scale(1.15);
-}
-
-/* If parent is also active, keep its larger scale */
-.dropdown:hover > a.active {
-  transform: scale(1.5);
-}
-
+.dropdown:hover > a { transform: scale(1.15); }
+.dropdown:hover > a.active { transform: scale(1.5); }
 .dropdown-menu {
-  opacity: 0;
-  visibility: hidden;
-  transform: translate(-50%, 10px);
-  position: absolute;
-  top: 100%;
-  left: 50%;
+  position: absolute; top: 100%; left: 50%;
+  opacity: 0; visibility: hidden; transform: translate(-50%,10px);
   list-style: none;
-  margin: 0;
   padding: 0.5rem 0;
   text-align: center;
   z-index: 2000;
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
 }
-
-.dropdown-menu li {
-  min-width: 160px;
-}
-
+.dropdown-menu li { min-width: 160px; }
 .dropdown-menu a {
   display: block;
   padding: 0.4rem 0.8rem;
-  font-size: 14px;    /* smaller than navbar */
-  font-weight: normal;
-  color: #222;
-  text-decoration: none;
+  font-size: 14px; color: #222; text-decoration: none;
   transition: transform 0.2s;
 }
+.dropdown-menu a:hover { transform: scale(1.08); }
 
-.dropdown-menu a:hover {
-  transform: scale(1.08);
-}
-
-/* ---------------------------
-   Social icons in nav
---------------------------- */
+/* Nav right icons */
 .nav-right {
-  margin-left: auto;
-  margin-right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  margin-left: auto; margin-right: 20px;
+  display: flex; align-items: center; gap: 1rem;
 }
 
 /* ===========================
-   SOCIAL ICONS (shared)
+   SOCIAL ICONS
 =========================== */
 .social-icon {
-  width: 28px;
-  height: 28px;
+  width: 28px; height: 28px;
   object-fit: contain;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  display: inline-block;
+  transition: transform 0.2s, opacity 0.2s;
 }
-
-.social-icon:hover {
-  transform: scale(1.1);
-  opacity: 0.8;
-}
+.social-icon:hover { transform: scale(1.1); opacity: 0.8; }
 
 /* ===========================
    HERO SECTIONS
 =========================== */
-
-/* Homepage hero (background.jpg) */
-.hero {
+.hero, .research-hero, .yonsei-hero, .life-hero {
   position: relative;
   height: 100vh;
-  background: url('assets/background.jpg') no-repeat center center;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;     /* keep 16:9 scaling */
   background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 250px; /* push logo down */
   overflow: hidden;
 }
 
-.center-logo {
-  max-width: 350px;
-  width: 60%;
-  height: auto;
-  pointer-events: none;
-}
+/* Backgrounds */
+.hero { background-image: url('assets/background.jpg'); padding-top: 250px; }
+.research-hero { background-image: url("assets/humanoid.jpg"); background-position: center 120px; background-color: #f9f9f9; padding-top: 180px; text-align: center; }
+.yonsei-hero { background-image: url("assets/yonsei.jpg"); padding-top: 230px; }
+.life-hero { background-image: url("assets/life.jpg"); padding-top: 180px; }
 
-/* Research page hero (humanoid.jpg) */
-.research-hero {
-  position: relative;
-  height: 100vh;
-  background: url("assets/humanoid.jpg") no-repeat center 120px;
-  background-size: cover;
-  background-attachment: fixed;
-  background-color: #f9f9f9;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 180px;
-  text-align: center;
-}
+/* Logos */
+.center-logo {top: 210px; max-width: 360px; width: 60%; }
+.research-logo {position: absolute; bottom: 150px; left: 170px; max-width: 350px; width: 20vw; height: auto; pointer-events: none; }
+.yonsei-logo {position: absolute; top: 200px; left: 50%; transform: translateX(-50%); max-width: 230px; width: 60%; height: auto; pointer-events: none; }
+.life-logo {position: absolute; top: 200px; left: 50%; transform: translateX(-50%); max-width: 180px; width: 60%; height: auto; pointer-events: none; }
 
-.research-logo {
-  position: absolute;
-  bottom: 150px;
-  left: 170px;
-  max-width: 350px;
-  width: 20vw;
-  height: auto;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* Yonsei page hero */
-.yonsei-hero {
-  position: relative;
-  height: 100vh;
-  background: url("assets/yonsei.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* stick to top area */
-  padding-top: 230px;      /* adjust vertical offset */
-}
-
-/* Yonsei logo */
-.yonsei-logo {
-  max-width: 280px;
-  width: 60%;
-  height: auto;
-  pointer-events: none;
-}
-
-/* Life page hero (life.jpg) */
-.life-hero {
-  position: relative;
-  height: 100vh;
-  background: url("assets/life.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 180px;
-}
-
-.life-logo {
-  position: absolute;
-  bottom: 100px;
-  left: 130px;
-  max-width: 180px;
-  width: 20vw;
-  height: auto;
-  pointer-events: none;
-}
 
 /* ===========================
-   PAGE SECTIONS
+   ABOUT SECTION
 =========================== */
-.page-section {
-  padding: 4rem 2rem;
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-}
-
-/* About Section */
 .about-section {
   padding: 6rem 2rem;
   background: #f9f9f9;
   text-align: center;
 }
-
 .about-photo img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 180px; height: 180px;
+  border-radius: 50%; object-fit: cover;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   margin-bottom: 1rem;
 }
-
-.intro {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: auto;
-}
-
-/* ===========================
-   TIMELINE
-=========================== */
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: auto;
-  padding-left: 20px;
-  border-left: 3px solid #ddd;
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 3rem;
-  padding-left: 30px;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -11px;
-  top: 5px;
-  width: 20px;
-  height: 20px;
-  background: #333;
-  border-radius: 50%;
-  border: 3px solid #f9f9f9;
-}
-
-.timeline-content {
-  background: #fff;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.timeline-item.present .timeline-dot {
-  background: #facc15;
-}
-
-.timeline-item.present .timeline-content {
-  border: 2px solid #facc15;
-}
+.intro { font-size: 1.2rem; max-width: 700px; margin: auto; }
 
 /* ===========================
    CONTACTS SECTION
 =========================== */
 .contacts-section {
-  padding: 4rem 2rem;
-  text-align: center;
-  background: #f9f9f9;
+  padding: 4rem 2rem; text-align: center; background: #f9f9f9;
 }
-
-.contacts-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
+.contacts-section h2 { font-size: 2rem; margin-bottom: 1rem; }
 .email-link {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #222;
-  text-decoration: none;
+  font-size: 1.1rem; font-weight: bold; color: #222; text-decoration: none;
 }
-
-.email-link:hover {
-  text-decoration: underline;
-}
-
+.email-link:hover { text-decoration: underline; }
 .social-links {
   margin: 1.5rem 0;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
+  display: flex; justify-content: center; gap: 2rem;
 }
 
 /* ===========================
@@ -377,69 +162,33 @@ body {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
-  background: #333;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
+  background: #333; color: #fff;
+  border-radius: 6px; text-decoration: none;
   transition: background 0.3s;
 }
-
-.btn:hover {
-  background: #facc15;
-  color: #000;
-}
+.btn:hover { background: #0bdbe6; color: #000; }
 
 /* ===========================
    FOOTER
 =========================== */
 .footer {
-  background: url("assets/footer.jpg") no-repeat center center;
-  background-size: cover;
-  width: 100%;
-  min-height: 300px;
+  background: url("assets/footer.jpg") no-repeat center/cover;
+  width: 100%; min-height: 300px;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
-
 .footer-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: absolute; inset: 0;
+  display: flex; justify-content: space-between; align-items: center;
   padding: 2rem 20%;
 }
-
-.footer-left .footer-logo {
-  height: 80px;
-  width: auto;
-}
-
+.footer-left .footer-logo { height: 80px; }
 .footer-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1rem;
-  font-weight: 600;
-  color: #000;
+  position: absolute; left: 50%; transform: translateX(-50%);
+  font-size: 1rem; font-weight: 600; color: #000;
 }
-
 .footer-right {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
 }
-
-.footer-right .social-icons {
-  display: flex;
-  gap: 16px;
-}
-
-.footer-right .footer-email {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #000;
-}
+.footer-right .social-icons { display: flex; gap: 16px; }
+.footer-right .footer-email { font-size: 1rem; font-weight: 600; color: #000; }
