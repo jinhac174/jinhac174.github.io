@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Life | Jinha Choi</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="global.css?v=2" />
+  <link rel="stylesheet" href="life.css?v=3" />
 </head>
-<body>
+<body class="life">
 
   <!-- Signature -->
   <img src="assets/signature-black.png" alt="Signature" class="signature">
@@ -15,8 +16,6 @@
   <nav class="navbar">
     <div class="nav-center">
       <ul class="nav-links">
-
-        <!-- Home Dropdown -->
         <li class="dropdown">
           <a href="index.html">Home</a>
           <ul class="dropdown-menu">
@@ -25,7 +24,6 @@
           </ul>
         </li>
 
-        <!-- Research -->
         <li class="dropdown">
           <a href="research.html">Research</a>
           <ul class="dropdown-menu">
@@ -35,7 +33,6 @@
           </ul>
         </li>
 
-        <!-- Yonsei -->
         <li class="dropdown">
           <a href="yonsei.html">Yonsei</a>
           <ul class="dropdown-menu">
@@ -45,79 +42,243 @@
           </ul>
         </li>
 
-        <!-- Life -->
         <li class="dropdown">
           <a href="life.html" class="active">Life</a>
           <ul class="dropdown-menu">
-            <li><a href="life.html#food">Food & Whiskey</a></li>
-            <li><a href="life.html#travel">Travel</a></li>
-            <li><a href="life.html#soccer">Soccer</a></li>
+            <li><a href="#food">Food & Whiskey</a></li>
+            <li><a href="#travel">Travel</a></li>
+            <li><a href="#soccer">Soccer</a></li>
           </ul>
         </li>
-
       </ul>
     </div>
 
-    <!-- Social Icons -->
     <div class="nav-right">
       <a href="https://instagram.com/daniel.c.hoi" target="_blank">
-        <img src="assets/instagram.png" alt="Instagram" class="social-icon">
+        <img src="assets/instagram.png" alt="Instagram" class="social-icon" />
       </a>
       <a href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank">
-        <img src="assets/linkedin.png" alt="LinkedIn" class="social-icon">
+        <img src="assets/linkedin.png" alt="LinkedIn" class="social-icon" />
       </a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="hero life-hero">
-    <img src="assets/life-hero.png" alt="Life" class="life-logo">
-  </header>
+  <!-- SCROLL SNAP CONTAINER -->
+  <div class="snap-container">
 
-  <!-- Page Content -->
-  <section class="page-section">
-    <h2>Life</h2>
-    <p>Share your personal life — food & whiskey, travel, hobbies, or anything beyond academics.</p>
-  </section>
+    <!-- HERO (full screen, mandatory snap target) -->
+    <header class="life-hero" id="life-hero">
+      <img src="assets/life-hero.png" alt="Life" class="life-logo">
+    </header>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-overlay">
-      <div class="footer-left">
-        <img src="assets/signature.png" alt="Signature" class="footer-logo">
-      </div>
-      <div class="footer-center">
-        <p>© 2025 Jinha Choi</p>
-      </div>
-      <div class="footer-right">
-        <div class="social-icons">
-          <a href="https://instagram.com/daniel.c.hoi" target="_blank">
-            <img src="assets/instagram.png" alt="Instagram" class="social-icon">
-          </a>
-          <a href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank">
-            <img src="assets/linkedin.png" alt="LinkedIn" class="social-icon">
-          </a>
+    <!-- CONTENT + FOOTER as ONE snap target -->
+    <div id="content-wrap" class="content-wrap">
+      <!-- CONTENT -->
+      <main class="life-main" id="life-main">
+        <!-- Tabs bar at top -->
+        <div class="life-tabs" id="life-tabs">
+          <button class="tab is-active" data-panel="food">Food & Whiskey</button>
+          <button class="tab" data-panel="travel">Travel</button>
+          <button class="tab" data-panel="soccer">Soccer</button>
         </div>
-        <p class="footer-email">jinhac174@gmail.com</p>
-      </div>
-    </div>
-  </footer>
 
+        <!-- Panels -->
+        <section id="food" class="panel is-visible">
+          <h2>Food & Whiskey</h2>
+          <p>Write about favorite restaurants, tastings, notes…</p>
+          <p>More content...</p>
+          <!-- Tall block for testing long content -->
+          <div style="height:220vh;max-width:950px;margin:2rem auto;border:1px dashed rgba(0,0,0,0.2);background:linear-gradient(180deg,#fafafa,#f0f0f0);"></div>
+        </section>
+
+        <section id="travel" class="panel">
+          <h2>Travel</h2>
+          <p>Trips, photos, highlights, tips.</p>
+          <p>More content...</p>
+        </section>
+
+        <section id="soccer" class="panel">
+          <h2>Soccer</h2>
+          <p>Clubs you follow, matches attended, pickup games, etc.</p>
+          <p>More content...</p>
+        </section>
+      </main>
+
+      <!-- FOOTER (continuous with content) -->
+      <footer class="footer">
+        <div class="footer-overlay">
+          <div class="footer-left">
+            <img src="assets/signature.png" alt="Signature" class="footer-logo">
+          </div>
+          <div class="footer-center">
+            <p>© 2025 Jinha Choi</p>
+          </div>
+          <div class="footer-right">
+            <div class="social-icons">
+              <a href="https://instagram.com/daniel.c.hoi" target="_blank">
+                <img src="assets/instagram-color.webp" alt="Instagram" class="social-icon">
+              </a>
+              <a href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank">
+                <img src="assets/linkedin-blue.webp" alt="LinkedIn" class="social-icon">
+              </a>
+            </div>
+            <p class="footer-email">jinhac174@gmail.com</p>
+          </div>
+        </div>
+      </footer>
+    </div><!-- /content-wrap -->
+
+  </div><!-- /snap-container -->
+
+  <!-- NAVBAR + SIGNATURE VISIBILITY (rooted to container) -->
   <script>
-    // Prevent browser restoring old scroll
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
+  (() => {
+    const container = document.querySelector('.snap-container');
+    const navbar    = document.querySelector('.navbar');
+    const signature = document.querySelector('.signature');
+    const hero      = document.getElementById('life-hero');
+    if (!container || !navbar || !signature || !hero) return;
+
+    const io = new IntersectionObserver(([e]) => {
+      const atTop = e.isIntersecting && e.intersectionRatio >= 0.6;
+      navbar.classList.toggle('nav--hide', !atTop);
+      signature.classList.toggle('sig--hide', !atTop);
+    }, { root: container, threshold: [0, 0.6] });
+
+    io.observe(hero);
+  })();
+  </script>
+
+  <!-- TAB SWITCHING -->
+  <script>
+  (() => {
+    const tabs = document.querySelectorAll('.life-tabs .tab');
+    const panels = document.querySelectorAll('.panel');
+
+    function switchToTab(panelId) {
+      tabs.forEach(t => t.classList.remove('is-active'));
+      const targetTab = Array.from(tabs).find(t => t.dataset.panel === panelId);
+      if (targetTab) targetTab.classList.add('is-active');
+      panels.forEach(p => p.classList.toggle('is-visible', p.id === panelId));
     }
 
-    // Always scroll to top on refresh if there's no hash
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        switchToTab(tab.dataset.panel);
+      });
+    });
+
+    // Expose globally for dropdown access
+    window.switchToTab = switchToTab;
+  })();
+  </script>
+
+  <!-- DROPDOWN LINKS (same-page): switch tab + scroll container to content top -->
+  <script>
+  (() => {
+    const container   = document.querySelector('.snap-container');
+    const hero        = document.getElementById('life-hero');
+    const contentWrap = document.getElementById('content-wrap');
+    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+    const internalLinks = document.querySelectorAll('.dropdown-menu a[href^="#"]');
+    if (!container || !hero || !contentWrap) return;
+
+    // keep hover menu stable
+    dropdownMenus.forEach(menu => {
+      menu.addEventListener('mousedown', e => e.stopPropagation());
+    });
+
+    function scrollToContent() {
+      // Ensure mandatory while crossing the boundary
+      container.style.scrollSnapType = 'y mandatory';
+      const targetY = contentWrap.offsetTop;
+      container.scrollTo({ top: targetY, behavior: 'smooth' });
+      history.replaceState(null, '', location.pathname);
+    }
+
+    function handleLinkClick(e) {
+      e.preventDefault();
+      const targetId = e.currentTarget.getAttribute('href').replace('#', '');
+      if (!['food', 'travel', 'soccer'].includes(targetId)) return;
+
+      if (typeof window.switchToTab === 'function') window.switchToTab(targetId);
+      scrollToContent();
+    }
+
+    internalLinks.forEach(link => {
+      link.addEventListener('mousedown', handleLinkClick);
+    });
+
+    // Handle direct hash loads (life.html#travel)
     window.addEventListener('load', () => {
-      if (!window.location.hash) {
+      const hash = (location.hash || '').replace('#', '');
+      if (['food', 'travel', 'soccer'].includes(hash)) {
+        if (typeof window.switchToTab === 'function') window.switchToTab(hash);
         setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 50);
+          container.style.scrollSnapType = 'y mandatory';
+          container.scrollTo({ top: contentWrap.offsetTop, behavior: 'smooth' });
+          setTimeout(() => history.replaceState(null, '', location.pathname), 700);
+        }, 150);
       }
     });
+  })();
   </script>
+
+  <!-- HERO ↔ CONTENT SNAP ASSIST (container-rooted) -->
+  <script>
+  (() => {
+    const container   = document.querySelector('.snap-container');
+    const hero        = document.getElementById('life-hero');
+    const contentWrap = document.getElementById('content-wrap');
+    if (!container || !hero || !contentWrap) return;
+
+    const SNAP_ZONE = 0.18;  // 18% near either edge of hero
+    const MAX_RANGE = 1.4;   // only assist within ~1.4× hero height
+    let t;
+
+    container.addEventListener('scroll', () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        const y = container.scrollTop;
+        const h = Math.max(1, hero.offsetHeight);
+        const contentTop = contentWrap.offsetTop;
+        if (y < h * MAX_RANGE) {
+          const frac = y / h;
+          if (frac < SNAP_ZONE) {
+            container.style.scrollSnapType = 'y mandatory';
+            container.scrollTo({ top: 0, behavior: 'smooth' });
+          } else if (frac > 1 - SNAP_ZONE && frac < 1 + SNAP_ZONE) {
+            container.style.scrollSnapType = 'y mandatory';
+            container.scrollTo({ top: contentTop, behavior: 'smooth' });
+          }
+        }
+      }, 100);
+    }, { passive: true });
+  })();
+  </script>
+
+  <!-- Snap-mode gate: Hero ↔ Content = mandatory, deeper content = none -->
+  <script>
+  (() => {
+    const container   = document.querySelector('.snap-container');
+    const contentWrap = document.getElementById('content-wrap');
+    if (!container || !contentWrap) return;
+
+    const BOUNDARY_PAD = 24; // keep 'mandatory' only a hair into the content
+
+    function updateSnapMode() {
+      const y = container.scrollTop;
+      const boundary = contentWrap.offsetTop + BOUNDARY_PAD;
+      container.style.scrollSnapType = (y < boundary) ? 'y mandatory' : 'none';
+    }
+
+    container.addEventListener('scroll', () => requestAnimationFrame(updateSnapMode), { passive: true });
+    window.addEventListener('resize', updateSnapMode);
+    window.addEventListener('load', updateSnapMode);
+    updateSnapMode();
+  })();
+  </script>
+
 
 </body>
 </html>

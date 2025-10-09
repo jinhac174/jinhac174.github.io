@@ -1,0 +1,198 @@
+/* ===========================
+   YONSEI – Hero snap + free scroll below
+=========================== */
+
+/* Smoothness + no browser bounce */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+  overscroll-behavior-y: none;
+}
+
+/* Body doesn't scroll on this page (container will) */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body.yonsei {
+  overflow: hidden;                 /* single scroll root = .snap-container */
+  overscroll-behavior-y: none;
+  scroll-snap-type: none !important;/* body is NOT a snap container */
+}
+
+/* Scroll root: container (NO mandatory by default to avoid footer tug) */
+body.yonsei .snap-container {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* IMPORTANT: keep 'none' here; if you use the gate script it will set 'y mandatory'
+     only near the Hero→Content boundary. */
+  scroll-snap-type: none;
+  overscroll-behavior-y: none;
+}
+
+/* ===========================
+   HERO - WITH SNAP
+=========================== */
+.yonsei-hero {
+  position: relative;
+  height: 100vh;
+
+  background-image: url("assets/yonsei.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll !important;
+  background-color: #f9f9f9;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+
+  /* snap target (hard stop) */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* subtle overlay */
+.yonsei-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.09);
+  z-index: 0;
+}
+.yonsei-hero > * { position: relative; z-index: 1; }
+
+/* logo */
+.yonsei-logo {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 260px;
+  width: 60%;
+  height: auto;
+  pointer-events: none;
+}
+
+/* ===========================
+   CONTENT + FOOTER as ONE snap target
+=========================== */
+.content-wrap {
+  min-height: 100vh;
+  scroll-snap-align: start !important;
+  scroll-snap-stop: normal !important;
+}
+
+/* Inside the wrapper: NO snap targets */
+.yonsei-main {
+  background: #fff;
+  color: #222;
+  padding: 0 0 5rem;
+  min-height: 100vh;
+
+  scroll-snap-align: none !important;
+  scroll-snap-stop: normal !important;
+}
+
+/* Footer must NOT snap */
+.footer {
+  scroll-snap-align: none !important;
+  scroll-snap-stop: normal !important;
+}
+
+/* Neutralize any stray snap rules that might leak from global/home */
+body.yonsei .snap-wrapper,
+body.yonsei .section,
+body.yonsei .parallax,
+body.yonsei [data-snap],
+body.yonsei [class*="section-"] {
+  scroll-snap-type: none !important;
+  scroll-snap-align: none !important;
+  scroll-snap-stop: normal !important;
+}
+
+/* ===========================
+   TABS BAR
+=========================== */
+.yonsei-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+  padding: 0.9rem 0;
+
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+/* Tabs */
+.yonsei-tabs .tab {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font: 600 17px/1 Arial, sans-serif;
+  color: #333;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.yonsei-tabs .tab:hover { transform: translateY(-1px); }
+.yonsei-tabs .tab.is-active { color: #000; }
+.yonsei-tabs .tab.is-active::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 25%;
+  width: 50%; height: 3px; border-radius: 3px;
+  background: rgba(11,219,230,0.7);
+  box-shadow: 0 0 10px rgba(11,219,230,0.45);
+}
+
+/* ===========================
+   PANELS
+=========================== */
+.panel {
+  display: none;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  animation: fadeIn .35s ease;
+  scroll-margin-top: 80px; /* spacing from sticky tabs */
+}
+.panel.is-visible { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.panel h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  color: #000;
+}
+.panel p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 720px) {
+  .yonsei-tabs { padding: 0.7rem 0; }
+  .yonsei-tabs .tab { padding: 0.7rem 1rem; font-size: 16px; }
+  .panel { padding: 2rem 1.25rem; }
+  .panel h2 { font-size: 1.6rem; }
+}
