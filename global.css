@@ -67,7 +67,7 @@ html, body { scroll-snap-type: none; }
    SOCIAL ICONS (shared)
 =========================== */
 .social-icon {
-  width: 28px; height: 28px; object-fit: contain;
+  width: 38px; height: 38px; object-fit: contain;
   transition: transform 0.2s, opacity 0.2s;
 }
 .social-icon:hover { transform: scale(1.1); opacity: 0.8; }
