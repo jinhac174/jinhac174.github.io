@@ -59,7 +59,6 @@ body.research .snap-container {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.05);
   z-index: 0;
 }
 .research-hero > * { position: relative; z-index: 1; }
@@ -132,14 +131,21 @@ body.research .snap-container {
   cursor: pointer;
   position: relative;
   transition: color 0.2s ease, transform 0.2s ease;
+  
+  flex: 1; /* Each tab takes equal space */
+  text-align: center; /* Center the text within each tab */
 }
 .research-tabs .tab:hover { transform: translateY(-1px); }
 .research-tabs .tab.is-active { color: #000; }
 .research-tabs .tab.is-active::after {
   content: "";
   position: absolute;
-  bottom: 0; left: 25%;
-  width: 50%; height: 3px; border-radius: 3px;
+  bottom: 0; 
+  left: 50%; /* Start from center */
+  transform: translateX(-50%); /* Center it */
+  width: 80px; /* Fixed width - adjust as needed */
+  height: 3px; 
+  border-radius: 3px;
   background: rgba(11,219,230,0.7);
   box-shadow: 0 0 10px rgba(11,219,230,0.45);
 }

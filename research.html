@@ -48,7 +48,7 @@
           <ul class="dropdown-menu">
             <li><a href="life.html#food">Food & Whiskey</a></li>
             <li><a href="life.html#travel">Travel</a></li>
-            <li><a href="life.html#soccer">Soccer</a></li>
+            <li><a href="life.html#concert">Concert</a></li>
           </ul>
         </li>
       </ul>
@@ -78,35 +78,175 @@
       <main class="research-main" id="research-main">
         <!-- Tabs -->
         <div class="research-tabs" id="research-tabs">
-          <button class="tab is-active" data-panel="publications">Publications</button>
-          <button class="tab" data-panel="interests">Interests</button>
+          <button class="tab" data-panel="publications">Publications</button>
+          <button class="tab is-active" data-panel="interests">Interests</button>
           <button class="tab" data-panel="experience">Experience</button>
         </div>
 
         <!-- Panels -->
-        <section id="publications" class="panel is-visible">
-          <h2>Publications</h2>
-          <p>To be added…</p>
+        <section id="publications" class="panel">
+          <img src="assets/publications.png" alt="publications" style="width: 260px; height: auto; display: block; margin: 0 auto; margin-bottom: 5rem;">
 
-          <!-- Tall block for testing long content -->
-          <div style="height:220vh;max-width:950px;margin:2rem auto;border:1px dashed rgba(0,0,0,0.2);background:linear-gradient(180deg,#fafafa,#f0f0f0);"></div>
+          <div style="max-width: 900px; margin: 2rem auto; padding: 2rem; text-align: left; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+            
+            <div style="margin-bottom: 5rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 2rem;">
+              <p style="font-size: 1.3rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.75rem; line-height: 1.4;">
+                When AI Co-Scientists Fail: SPOT-a Benchmark for Automated Verification of Scientific Research
+              </p>
+              
+              <p style="font-size: 1rem; color: #555; margin-bottom: 0.5rem; line-height: 1.5;">
+                Guijin Son, Jiwoo Hong, Honglu Fan, Heejeong Nam, Hyunwoo Ko, Seungwon Lim, Jinyeop Song, <strong>Jinha Choi</strong>, Gonçalo Paulo, Youngjae Yu, Stella Biderman
+              </p>
+              
+              <p style="font-size: 0.95rem; color: #888; margin-bottom: 1rem; font-style: italic;">
+                ICLR 2026 Conference Submission
+              </p>
+              
+              <div style="display: flex; gap: 0.75rem; align-items: center;">
+                <a href="https://arxiv.org/abs/2505.11855" style="display: inline-block; padding: 0.5rem 1.25rem; background: #f5f5f5; border: 1px solid #ddd; border-radius: 6px; color: #333; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: all 0.2s ease;">
+                  arXiv
+                </a>
+                <a href="assets/pub1.pdf" style="display: inline-block; padding: 0.5rem 1.25rem; background: #f5f5f5; border: 1px solid #ddd; border-radius: 6px; color: #333; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: all 0.2s ease;">
+                  Paper
+                </a>
+              </div>
+            </div>
+            
+          </div>
         </section>
 
-        <section id="interests" class="panel">
-          <h2>Research Interests</h2>
-          <p>To be added…</p>
+        <section id="interests" class="panel is-visible">
+          <img src="assets/interests.png" alt="interests" style="width: 195px; height: auto; display: block; margin: 0 auto; margin-bottom: 5rem;">
+          
+          <div style="max-width: 900px; margin: 2rem auto; padding: 2rem; text-align: left; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
 
-          <!-- Tall block for testing long content -->
-          <div style="height:220vh;max-width:950px;margin:2rem auto;border:1px dashed rgba(0,0,0,0.2);background:linear-gradient(180deg,#fafafa,#f0f0f0);"></div>
+
+            <div style="margin-bottom: 5rem;">
+              <p style="font-size: 1.3rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; border-bottom: 2px solid #333; display: inline-block; padding-bottom: 0.25rem;">
+                Robot Learning
+              </p>
+              <p style="font-size: 1rem; color: #555; line-height: 1.6; margin-top: 0.75rem;">
+                During my 3 years of Vex Robotics Competition, I had worked on diverse aspects of building and designing robots to handle
+                complex tasks and optimizing the process. These were human controlled robots, and they depended on human drivers to make
+                complex decisions and plans under quickly changing environments of the games.
+              </p>
+              <p style="font-size: 1rem; color: #555; line-height: 1.6; margin-top: 0.75rem;">
+                Now, I am interested in humanoid robot learning, looking forward to real-world deployable humanoids that can maneuver through
+                the real-world environments to solve given tasks. Currently my particular interest lies in humanoid loco-manipulation that is
+                natural and efficient, while not being limited to single or few task settings. I am working on motion prior pre-training stage
+                with rl to train robust and generalizable hierarchical policy.
+              </p>
+            </div>
+            
+
+            <div style="margin-bottom: 5rem;">
+              <p style="font-size: 1.3rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; border-bottom: 2px solid #333; display: inline-block; padding-bottom: 0.25rem;">
+                Reinforcement Learning
+              </p>
+              <p style="font-size: 1rem; color: #555; line-height: 1.6; margin-top: 0.75rem;">
+                Looking ahead, I personally favor reinforcement learning approaches over the other imitation learning or tracking approaches.
+                I am interested in how humans, ever since we are born, experience and maneuver through the world environments to collect data
+                and enhance all traits / capabilities we own as human beings. With very precise sensory undertanding (hardware) and experiences with
+                world interaction (data), each human being continues to learn / reinforce. I like finding motivations from how humans learn starting
+                from babies, to find ideas on how robot learning can be enhanced via reinforcement learning. 
+              </p>
+              <p style="font-size: 1rem; color: #555; line-height: 1.6; margin-top: 0.75rem;">
+                I am currently working on solving complex-locomanipulation tasks with generalization via goal-conditioned reinforcement learning and 
+                motion priors for motion / skill composition.
+              </p>
+            </div>
+      
+          </div>
         </section>
 
         <section id="experience" class="panel">
-          <h2>Experience</h2>
-          <p>To be added…</p>
+          <img src="assets/Experience.png" alt="experience" style="width: 260px; height: auto; display: block; margin: 0 auto; margin-bottom: 5rem;">
+          
+          <div style="max-width: 900px; margin: 2rem auto; padding: 2rem; text-align: left; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
 
-          <!-- Tall block for testing long content -->
-          <div style="height:220vh;max-width:950px;margin:2rem auto;border:1px dashed rgba(0,0,0,0.2);background:linear-gradient(180deg,#fafafa,#f0f0f0);"></div>
+            <div style="margin-bottom: 5rem;">
+              <p style="font-size: 1.3rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; border-bottom: 2px solid #333; display: inline-block; padding-bottom: 0.25rem;">
+                RLLAB
+              </p>
+              <p style="font-size: 1rem; color: #555; line-height: 1.6; margin-top: 0.75rem;">
+                I am working as a research intern at RLLAB @ Yonsei, advised by prof. Youngwoon Lee.
+              </p>
+              <p style="font-size: 1rem; color: #555; line-height: 1.6; margin-top: 0.75rem;">
+                I am working on humanoid loco-manipulation with motion priors pre-training and hierarchical compositional goal-conditioned
+                reinforcement learning.
+              </p>
+            </div>
+            
+            <div style="margin-bottom: 5rem;">
+              <p style="font-size: 1.3rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; border-bottom: 2px solid #333; display: inline-block; padding-bottom: 0.25rem;">
+                MIRLAB
+              </p>
+              <p style="font-size: 1rem; color: #555; line-height: 1.6; margin-top: 0.75rem;">
+                I did a short-time intership at MIRLAB @Yonsei (previously) advised by prof. Youngjae Yu.
+              </p>
+              <p style="font-size: 1rem; color: #555; line-height: 1.6; margin-top: 0.75rem;">
+                I participated in LLM benchmark on assesing LLM's capability to identify errors in scientific papers. I took a part in 
+                  data-processing and preparing dataset of the list of papers and identified errors.
+              </p>
+            </div>
+          
+            <div style="margin-bottom: 5rem;">
+              <p style="font-size: 1.3rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; border-bottom: 2px solid #333; display: inline-block; padding-bottom: 0.25rem;">
+                Vex Robotics Competition
+              </p>
+              <p style="font-size: 1rem; color: #555; line-height: 1.6; margin-top: 0.75rem;">
+                I was a part of Vex Robotics program in West Vancouver Secondary School for 3 years util highscool graduation. I took a role
+                of a team Lead for team 1010B which consisted of 6 people, each working on designing, engineering, building, programming,
+                managing, and driving the robots. As a team lead, I took major parts in every aspect, aiming for top teams in the world.
+              </p>
+              <p style="font-size: 1rem; color: #555; line-height: 1.6; margin-top: 0.75rem;">
+                During regional tournaments season throughout the year,we participated in every tournament to test new builds and approaches
+                against other teams, and continued to make improvements in every aspect possible. We qualified for the Provincials early in 
+                every season, working towards it. After much effort, we came first in the Provincials and got qualified to the World 
+                Championship held yearly in Kentucky at the end of the season. 
+              </p>
+              <p style="font-size: 1rem; color: #555; line-height: 1.6; margin-top: 0.75rem;">
+                Preparing for the World Championship, each member dedicated their whole time as well during final weeks. Ready for final
+                competition, we had come a long journey and placed pretty high out of 600 teams qualified to Worlds. This experience was
+                absolutely precious, and I could learn a lot from everything and the process we put ourselves through to solve problems and
+                push towards higher goals.
+              </p>
+
+              <!-- Media Grid: Video on left, photos on right -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+                <!-- Video (spans 2 rows) -->
+                <div style="grid-row: span 2;">
+                  <video controls style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                    <source src="assets/vex.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+
+                <!-- Photos on right side -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                  <img src="assets/vex1.jpg" alt="Vex 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                  <img src="assets/vex2.jpg" alt="Vex 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                  <img src="assets/vex3.jpg" alt="Vex 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                  <img src="assets/vex4.jpg" alt="Vex 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                </div>
+              </div>
+
+              <!-- Additional photos below if needed -->
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1rem;">
+                <img src="assets/vex5.jpg" alt="Vex 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                <img src="assets/vex6.jpg" alt="Vex 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                <img src="assets/vex7.jpg" alt="Vex 7" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                <img src="assets/vex8.png" alt="Vex 8" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+              </div>
+
+            </div>
+
+          </div>
         </section>
+
       </main>
 
       <!-- Footer (continuous with content) -->
@@ -121,10 +261,10 @@
           <div class="footer-right">
             <div class="social-icons">
               <a href="https://instagram.com/daniel.c.hoi" target="_blank">
-                <img src="assets/instagram-color.webp" alt="Instagram" class="social-icon">
+                <img src="assets/instagram-color.webp" alt="Instagram" class="footer-icon">
               </a>
               <a href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank">
-                <img src="assets/linkedin-blue.webp" alt="LinkedIn" class="social-icon">
+                <img src="assets/linkedin-blue.webp" alt="LinkedIn" class="footer-icon">
               </a>
             </div>
             <p class="footer-email">jinhac174@gmail.com</p>
@@ -225,12 +365,13 @@
   <script>
   (() => {
     const container   = document.querySelector('.snap-container');
-    const hero        = document.getElementById('research-hero');
+    const hero        = document.getElementById('research-hero'); // or 'yonsei-hero' or 'research-hero'
     const contentWrap = document.getElementById('content-wrap');
     if (!container || !hero || !contentWrap) return;
 
     const SNAP_ZONE = 0.18;  // 18% near either edge of hero
     const MAX_RANGE = 1.4;   // Only assist within ~1.4× hero height
+    const DEADZONE = 50;     // px - don't snap if already within this distance of target
     let t;
 
     container.addEventListener('scroll', () => {
@@ -239,12 +380,15 @@
         const y = container.scrollTop;
         const h = Math.max(1, hero.offsetHeight);
         const contentTop = contentWrap.offsetTop;
+        
         if (y < h * MAX_RANGE) {
           const frac = y / h;
-          if (frac < SNAP_ZONE) {
+          
+          // Check if we're in snap zone but NOT already at the target (deadzone)
+          if (frac < SNAP_ZONE && Math.abs(y - 0) > DEADZONE) {
             container.style.scrollSnapType = 'y mandatory';
             container.scrollTo({ top: 0, behavior: 'smooth' });
-          } else if (frac > 1 - SNAP_ZONE && frac < 1 + SNAP_ZONE) {
+          } else if (frac > 1 - SNAP_ZONE && frac < 1 + SNAP_ZONE && Math.abs(y - contentTop) > DEADZONE) {
             container.style.scrollSnapType = 'y mandatory';
             container.scrollTo({ top: contentTop, behavior: 'smooth' });
           }
