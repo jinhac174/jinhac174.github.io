@@ -410,3 +410,7 @@ body.life .snap-container {
 
 .travel-arrow.left { left: 1.5rem; }
 .travel-arrow.right { right: 1.5rem; }
+
+.travel-modal-content.hidden {
+  display: none !important;
+}
