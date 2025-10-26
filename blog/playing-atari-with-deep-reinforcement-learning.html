@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playing Atari with Deep Reinforcement Learning — Paper Review</title>
+    <link rel="stylesheet" href="blog.css">
+</head>
+
+<body>
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+        <div class="profile">
+            <img src="../assets/jinha.jpg" alt="Jinha Choi">
+            <div class="profile-name">Jinha Choi</div>
+        </div>
+        <div class="nav-links">
+            <a class="home-link" href="../index.html">Home</a>
+            <a class="blog-link" href="./index.html">Blog</a>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <h1>Playing Atari with Deep Reinforcement Learning</h1>
+    <div class="meta">
+        <p><strong>Authors:</strong> [Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Alex Graves, Ioannis Antonoglou, Daan Wierstra, Martin Riedmiller]</p>
+        <p><strong>Published:</strong> arxiv:1312.5602 (Aug 2025)</p>
+        <p><strong>Link:</strong> <a href="https://arxiv.org/abs/1312.5602" target="_blank">View PDF</a></p>
+    </div>
+
+    <h2>1. Summary</h2>
+    <p>
+        <strong>Playing Atari with Deep Reinforcement Learning</strong> introduces a deep reinforcement learning agent
+        that learns control policies directly from raw Atari game frames, without any game-specific engineering.
+        Their approach combines a convolutional neural network with Q-learning and experience replay to handle
+        high-dimensional visual input, stabilize training, and break temporal correlations in the data.
+    </p>
+    <p>
+        The same network architecture and hyperparameter settings are used and evaluated on all seven Atari games.
+        The agent achieves strong performance compared to previous models and even exceeds human in some games.
+        This paper is one of the first to show that a single general-purpose deep learning system
+        can learn from only pixels and rewards.
+    </p>
+
+    <figure class="paper-figure">
+        <img src="../assets/atari.png" alt="Atari">
+        <figcaption>
+            Figure adapted from 
+            <a href="https://arxiv.org/abs/1312.5602" target="_blank">
+                Mnih et&nbsp;al., 2013 (Playing Atari with Deep Reinforcement Learning)
+            </a>
+        </figcaption>
+    </figure>
+
+
+    <h2>2. Introduction</h2>
+    <p>
+    Deep learning first flourished in the fields of <strong>supervised</strong> and <strong>unsupervised learning</strong>,
+    where models learn from large labeled datasets or discovered structure from unlabeled data.
+    In those areas, neural networks achieved remarkable success — especially in computer vision and natural language processing —
+    largely because the data distribution is stable and feedback is immediate.
+    </p>
+
+    <p>
+    In contrast, <strong>reinforcement learning (RL)</strong> poses a very different challenge.
+    Instead of static datasets, agents learn by interacting with an environment and receiving rewards as feedback.
+    This difference makes RL much harder to scale with deep learning methods.
+    Before this paper, most RL algorithms relied on <strong>hand-crafted feature representations</strong>
+    or linear value functions designed by humans.
+    While these methods worked for small problems, they couldn’t handle raw, high-dimensional inputs like game frames or real-world images.
+    </p>
+    <br>
+    <p style="margin-bottom: 30px;">
+    The difficulty comes from several fundamental issues:
+    </p>
+
+    <ul>
+        <li style="margin-bottom: 20px;">
+            <strong>Sparse and Delayed Rewards</strong> — Feedback is sparse and often delayed,
+            making it hard to assign correct weigts to good actions.
+        </li>
+        <li style="margin-bottom: 20px;">
+            <strong>Highly Correlated Data</strong> —
+            Most deep learning algorithms assume that training samples are independent and identically distributed (i.i.d.),
+            but in RL, data comes from sequential trajectories, causing strong temporal correlations.
+        </li>
+        <li>
+            <strong>Non-stationary Data Distribution</strong> —
+            Since the agent’s policy evolves as learning progresses,
+            the data distribution constantly changes, destabilizing the training process.
+        </li>
+    </ul>
+    <br>
+
+    <p>
+    The paper <strong>“Playing Atari with Deep Reinforcement Learning”</strong> (Mnih et al., 2013)
+    introduced a powerful approach to overcome these limitations.
+    By combining a <strong>convolutional neural network (CNN)</strong> with <strong>Q-learning</strong>
+    and a new <strong>experience replay</strong> mechanism,
+    the authors trained agents directly from raw Atari game pixels — without any manually designed features.
+    They used a single, fixed network architecture and hyperparameter setting across different games,
+    training a separate agent for each.
+    This demonstrated that a deep neural network could learn control policies
+    end-to-end from high-dimensional visual input.
+    </p>
+    <br>
+
+    <h2 style="margin-bottom: 20px;">3. Background</h2>
+
+    <h3>3.1 Basic Framework</h3>
+    <p>
+    In reinforcement learning, an <strong>agent</strong> interacts with an <strong>environment</strong> over a sequence of discrete time steps.
+    At each time step <em>t</em>, the agent observes the current game screen as an image 
+    (<em>x<sub>t</sub> ∈ ℝ<sup>d</sup></em>),
+    selects an action <em>a<sub>t</sub></em> from the action space <em>A</em>,
+    and receives a scalar reward <em>r<sub>t</sub></em> from the environment.
+    The Atari emulator serves as the environment, updating the game state based on the chosen action.
+    </p>
+
+    <p>
+    The agent defines state as a sequence of observations from the game and actions in each image observation
+    </p>
+
+    <p style="margin-top: 40px;">
+    The episode terminates at a finite time step <em>T</em>,
+    so the interaction can be modeled as a <strong>finite Markov Decision Process (MDP)</strong>.
+    The goal of the agent is to maximize the cumulative future discounted reward:
+    </p>
+
+    <figure class="equation-figure" style="margin-bottom: 40px;">
+        <img src="../assets/atari_1.png" alt="State representation equation: s_t = x1, a1, …, a_t−1, x_t">
+    </figure>
+
+
+    <h3 style="margin-bottom: 40px;">3.2 Value Functions and the Bellman Equation</h3>
+    <p>
+    The <strong>optimal state-action value function</strong> (or Q-function) is defined as:
+    </p>
+
+    <figure class="equation-figure" style="margin-bottom: 40px;">
+        <img src="../assets/atari_2.png" alt="State representation equation"
+            style="max-width: 40%; height: auto;">
+    </figure>
+
+
+    <p>
+    According to the <strong>Bellman optimality equation</strong>:
+    </p>
+
+    <figure class="equation-figure" style="margin-bottom: 40px;">
+        <img src="../assets/atari_3.png" alt="State representation equation"
+            style="max-width: 40%; height: auto;">
+    </figure>
+
+    <p style="margin-bottom: 50px;">
+    In theory, repeatedly applying the Bellman update through <em>value iteration</em> can recover the optimal Q*.
+    However, this approach becomes intractable when the state space is large or continuous,
+    such as when the input is high-dimensional image data.
+    To generalize across states, they use a <strong>function approximator</strong>.
+    </p>
+
+    <h3>3.3 Q-Network Approximation</h3>
+    <p>
+    The paper uses a <strong>neural network</strong> parameterized by <em>θ</em>
+    to approximate <em>Q(s, a; θ)</em>.
+    This <strong>Q-network</strong> is trained to minimize the following loss at iteration <i>i</i>:
+    </p>
+
+    <figure class="equation-figure" style="margin-bottom: 40px;">
+        <img src="../assets/atari_4.png" alt="State representation equation"
+            style="max-width: 40%; height: auto;">
+    </figure>
+
+    <p>
+    where the target <em>y<sub>i</sub></em> is computed using the previous network parameters <em>θ<sub>i − 1</sub></em>:
+    </p>
+
+    <figure class="equation-figure" style="margin-bottom: 40px;">
+        <img src="../assets/atari_5.png" alt="State representation equation"
+            style="max-width: 50%; height: auto;">
+    </figure>
+
+    <p>
+    Here, <em>ρ(s,a)</em> denotes the behavior distribution from which transitions are sampled.
+    The optimization is performed using <strong>stochastic gradient descent</strong> (SGD).
+    </p>
+
+    <p>
+    This framework is both <strong>model-free</strong>—it relies solely on samples from the emulator—and
+    <strong>off-policy</strong>, since training uses transitions gathered under an <em>ε-greedy</em> behavior policy.
+    </p>
+    <br>
+    
+    <h2>4. Deep Q-Learning with Experience Replay</h2>
+
+    <p>
+    The central contribution of the paper is the combination of
+    <strong>Q-learning</strong> with a <strong>deep convolutional neural network</strong> that estimates the action-value function
+    directly from pixels.
+    To make this learning stable, the authors introduce two crucial mechanisms:
+    <em>experience replay</em> and a fixed target network.
+    Together, these ideas address the instability that arises
+    when training a neural network on sequential, correlated RL data.
+    </p>
+
+    <h3 style="margin-top: 40px;">4.1 Algorithm Overview</h3>
+    <p>
+    At each time step <em>t</em>, the agent interacts with the environment (the Atari emulator) by choosing an action
+    based on an <strong>ε-greedy policy</strong>:
+    with probability <em>ε</em>, a random action is chosen for exploration;
+    otherwise, the agent selects the action that maximizes its current Q-value estimate.
+    The environment returns the next frame <em>x<sub>t+1</sub></em> and reward <em>r<sub>t</sub></em>.
+    </p>
+
+    <p>
+    Each transition <em>(φ<sub>t</sub>, a<sub>t</sub>, r<sub>t</sub>, φ<sub>t+1</sub>)</em> is stored in a
+    <strong>replay D</strong>.
+    During training, the agent samples random mini-batches of past transitions from D
+    instead of using consecutive samples,
+    breaking the strong temporal correlation and improving sample efficiency.
+    </p>
+
+    <figure class="equation-figure" style="margin-bottom: 30px;">
+        <img src="../assets/atari_6.png" alt="Algorithm 1: Deep Q-learning with Experience Replay"
+            style="max-width: 60%; height: auto;">
+        <figcaption>
+            Algorithm 1 from the paper: <em>Deep Q-Learning with Experience Replay</em> (Mnih et al., 2013).
+        </figcaption>
+    </figure>
+
+   <h3>4.2 Training Dynamics</h3>
+
+    <p>
+    The Q-network is optimized using stochastic gradient descent to minimize the mean-squared error
+    between the predicted Q-value and a target value computed from previous network parameters.
+    A second network, called the <strong>target network</strong>, is used to compute these targets and is updated
+    periodically from the main network to stabilize training.
+    This separation helps prevent feedback loops that can cause divergence.
+    </p>
+
+    <p>
+    Since transitions are sampled from replay memory while actions are generated using an ε-greedy policy,
+    the method is <strong>off-policy</strong> — it can learn from past experience even as the policy evolves.
+    It is also <strong>model-free</strong>, relying entirely on samples from the environment rather than
+    any explicit model of the game dynamics.
+    </p>
+
+    <p>
+    Through these design choices, the algorithm successfully learns to control Atari agents
+    directly from high-dimensional pixel input,
+    achieving near or above human-level performance in multiple games.
+    </p>
+
+
+    <h2>5. Preprocessing and Model Architecture</h2>
+
+    <h3>5.1 Input Preprocessing</h3>
+    <p style="margin-bottom: 40px;">
+    Working directly with raw Atari frames—<strong>210 × 160 pixels</strong> with a <strong>128-color palette</strong>—
+    is computationally heavy and contains redundant information.
+    To make learning tractable, the paper applies a series of preprocessing steps that reduce
+    the input dimensionality while retaining the key features of gameplay.
+    </p>
+
+    <p>
+    Each frame is first converted from RGB to <strong>grayscale</strong>,
+    eliminating color information that is not essential for decision-making.
+    The image is then <strong>down-sampled to 110 × 84 pixels</strong>,
+    and finally a centered <strong>84 × 84 region</strong> is <strong>cropped</strong> to capture the active playing area.
+    This cropping step is largely a practical choice, made because the GPU convolution implementation
+    used in the experiments required <em>square</em> inputs.
+    </p>
+
+    <p style="margin-bottom: 40px;">
+    To incorporate temporal information, the preprocessing function φ stacks the most recent
+    <strong>four consecutive preprocessed frames</strong> to form the network input.
+    This 4-frame history provides the model with a short-term view of motion and dynamics—
+    crucial for tasks such as tracking the ball in <em>Breakout</em> or the paddle in <em>Pong</em>.
+    </p>
+
+
+    <h3>5.2 Exact Network Architecture</h3>
+    <p>
+    The input to the network is an image of size <strong>84 × 84 × 4</strong>
+    produced by the preprocessing function φ.
+    The architecture, which is shared across all seven Atari games in the paper, is as follows:
+    </p>
+
+    <ul>
+        <li>
+            <strong>Conv 1:</strong> 16 filters of size 8 × 8, stride 4, followed by a ReLU activation.
+        </li>
+        <li>
+            <strong>Conv 2:</strong> 32 filters of size 4 × 4, stride 2, followed by a ReLU.
+        </li>
+        <li>
+            <strong>Fully Connected 1:</strong> 256 ReLU units.
+        </li>
+        <li>
+            <strong>Output Layer:</strong> a fully connected linear layer
+            producing one scalar Q-value for each valid action (between 4 and 18 depending on the game).
+        </li>
+    </ul>
+
+    <p>
+    This straightforward convolutional architecture proved remarkably powerful.
+    With minimal tuning and no game-specific modifications,
+    it successfully learned control policies across a wide variety of Atari 2600 titles,
+    demonstrating the generality of deep reinforcement learning from raw visual input.
+    </p>
+    <br>
+
+    <h2>6. Experiments and Evaluation</h2>
+
+    <h3>6.1 Training Stability</h3>
+    <p>
+    One of the key findings from this work is how the use of <strong>experience replay</strong> and a
+    <strong>target network</strong> greatly stabilizes training.
+    Without these techniques, Q-values tend to oscillate or diverge as the network overfits to
+    recent transitions.
+    With replay memory and periodic target updates, the learning curve becomes smoother,
+    showing consistent performance improvements over millions of frames.
+    </p>
+
+    <figure class="paper-figure" style="margin-bottom: 35px;">
+        <img src="../assets/atari_7.png" alt="Training stability comparison"
+            style="max-width: 80%; height: auto;">
+        <figcaption>
+            Training stability comparison: without replay (unstable) vs. with replay and target network (stable).
+        </figcaption>
+    </figure>
+
+    <h3>6.2 Visualizing the Value Function</h3>
+    <p>
+    To better understand what the network has learned, the authors provided the visualization of <strong>estimated value function</strong>
+    across different frames and game states.
+    These visualizations reveal that the Q-network gradually learns to assign higher values
+    to advantageous positions—such as favorable paddle alignments or moments before scoring events.
+    The learned representation captures long-term reward dependencies,
+    indicating that the agent is developing an internal sense of strategy rather than reacting myopically.
+    </p>
+
+    <figure class="paper-figure" style="margin-bottom: 35px;">
+        <img src="../assets/atari_8.png" alt="Visualization of the learned value function"
+            style="max-width: 80%; height: auto;">
+        <figcaption>
+            Visualization of the learned Q-value function across game states.
+            Brighter regions correspond to states predicted to yield higher future rewards.
+        </figcaption>
+    </figure>
+
+    <h3>6.3 Main Evaluation</h3>
+    <p>
+    The final evaluation demonstrates the generalization power of the DQN agent.
+    Trained independently on seven Atari 2600 titles, the same architecture achieved
+    <strong>human-level or better performance</strong> in several games such as <em>Pong</em>,
+    <em>Breakout</em>, and <em>Enduro</em>.
+    This result established the DQN framework as a major milestone in reinforcement learning,
+    showing that end-to-end learning from high-dimensional sensory input can yield
+    robust and transferable control behavior.
+    </p>
+
+    <figure class="paper-figure" style="margin-bottom: 35px;">
+        <img src="../assets/atari_9.png" alt="Main evaluation results across Atari games"
+            style="max-width: 60%; height: auto;">
+        <figcaption>
+            Final evaluation results across Atari 2600 games.
+            DQN outperforms linear baselines and in several cases reaches human-level scores.
+        </figcaption>
+    </figure>
+
+
+    <h2>7. Conclusion</h2>
+
+    <p>
+    <em>Playing Atari with Deep Reinforcement Learning</em> was the first clear demonstration
+    that a single neural network could learn control policies directly from raw pixels and rewards.
+    By combining reinforcement learning with deep convolutional networks, the authors demonstrated
+    that agents can learn directly from high-dimensional sensory inputs—pixels—to perform complex control tasks
+    without any human-designed features or domain knowledge.
+    </p>
+
+    <p>
+    The introduction of <strong>experience replay</strong> and a <strong>target network</strong>
+    solved key instability issues that had long prevented RL from working with deep function approximators.
+    These ideas enabled stable, end-to-end training and became the foundation
+    for nearly all subsequent advances in deep reinforcement learning.
+    </p>
+
+    <p>
+    Apart from its algorithmic contributions, the paper is very noticeable in the sense that it reshaped the direction of RL itself:
+    that a single, general-purpose agent can learn directly from raw experience to achieve
+    intelligent behavior across environments.
+    What began as an experiment in Atari games evolved into a paradigm shift—
+    one that continues to drive progress in diverse approaches.
+    </p>
+
+
+
+    <a class="back" href="./index.html">← Back to Blog</a>
+</body>
+</html>
