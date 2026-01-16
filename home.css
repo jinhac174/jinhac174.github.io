@@ -87,7 +87,7 @@ body.home {
 .content-inner h2 {
   font-size: 2.2rem;
   margin-top: 4rem;
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
   color: #000;
   text-align: center;
 }
@@ -275,7 +275,11 @@ body.home {
 .timeline .desc p,
 .timeline .desc span { margin-left: 0 !important; margin-right: 0 !important; }
 
-.desc > span { white-space: nowrap; }
+/* Keep long single lines like degree names on one line */
+.desc > span { 
+  white-space: nowrap;
+  display: block;
+}
 
 .timeline li::before {
   content: "";
