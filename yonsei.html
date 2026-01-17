@@ -10,7 +10,7 @@
 <body class="yonsei">
 
     <!-- Signature -->
-    <img src="assets/signature-black.png" alt="Signature" class="signature">
+    <img src="assets/global/signature-black.png" alt="Signature" class="signature">
 
     <!-- Navbar -->
     <nav class="navbar">
@@ -36,18 +36,9 @@
                 <li class="dropdown">
                     <a href="yonsei.html" class="active">Yonsei</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#campus-life">Campus Life</a></li>
                         <li><a href="#courses">Courses</a></li>
                         <li><a href="#awards">Awards</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="life.html">Life</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="life.html#food">Food & Whiskey</a></li>
-                        <li><a href="life.html#travel">Travel</a></li>
-                        <li><a href="life.html#concert">Concert</a></li>
+                        <li><a href="#campus-life">Campus Life</a></li>
                     </ul>
                 </li>
             </ul>
@@ -55,10 +46,10 @@
 
         <div class="nav-right">
             <a href="https://instagram.com/daniel.c.hoi" target="_blank">
-                <img src="assets/instagram.png" alt="Instagram" class="social-icon" />
+                <img src="assets/global/instagram.png" alt="Instagram" class="social-icon" />
             </a>
             <a href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank">
-                <img src="assets/linkedin.png" alt="LinkedIn" class="social-icon" />
+                <img src="assets/global/linkedin.png" alt="LinkedIn" class="social-icon" />
             </a>
         </div>
     </nav>
@@ -67,8 +58,8 @@
     <div class="snap-container">
 
         <!-- HERO (full screen, mandatory snap target) -->
-        <header class="yonsei-hero" id="yonsei-hero">
-            <img src="assets/yonsei-hero.png" alt="Yonsei" class="yonsei-logo">
+        <header class="yonsei-hero" id="yonsei-hero" style="background-image: url('assets/yonsei/background.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <img src="assets/yonsei/yonsei-hero.png" alt="Yonsei" class="yonsei-logo">
         </header>
 
         <!-- CONTENT + FOOTER as ONE snap target -->
@@ -80,13 +71,13 @@
                 <!-- Tabs bar at top -->
                 <div class="yonsei-tabs" id="yonsei-tabs">
                     <button class="tab" data-panel="courses">Courses</button>
-                    <button class="tab is-active" data-panel="campus-life">Campus Life</button>
-                    <button class="tab" data-panel="awards">Awards</button>
+                    <button class="tab is-active" data-panel="awards">Awards</button>
+                    <button class="tab" data-panel="campus-life">Campus Life</button>
                 </div>
 
                 <!-- Panels -->
                 <section id="courses" class="panel">
-                    <img src="assets/courses.png" alt="courses"
+                    <img src="assets/yonsei/courses.png" alt="courses"
                         style="width: 195px; height: auto; display: block; margin: 0 auto 2rem; margin-bottom: 4rem;">
 
                     <!-- New wrapper -->
@@ -258,8 +249,8 @@
                     </section>
 
 
-                <section id="campus-life" class="panel is-visible">
-                    <img src="assets/campuslife.png" alt="campus life"
+                <section id="campus-life" class="panel">
+                    <img src="assets/yonsei/campuslife.png" alt="campus life"
                          style="width: 300px; height: auto; display: block; margin: 0 auto 2rem;">
 
                     <!-- Sub-tabs bar -->
@@ -285,8 +276,8 @@
                     </div>
                 </section>
 
-                <section id="awards" class="panel">
-                    <img src="assets/awards.png" alt="awards"
+                <section id="awards" class="panel is-visible">
+                    <img src="assets/yonsei/awards.png" alt="awards"
                         style="width: 195px; height: auto; display: block; margin: 0 auto 2rem;">
 
                     <!-- AWARDS WRAPPER -->
@@ -294,34 +285,55 @@
                         
                         <!-- SINGLE AWARD BLOCK -->
                         <div class="award-item">
-                        <p class="award-title">Certificate of Recognition</p>
+                        <p class="award-title">Peer Mentor, Yonsei–Nexon RC Creative Platform</p>
                         <p class="award-desc">
-                            This certificate is proudly presented to the student
-                            for faithfully serving as a Peer Mentor
-                            in the 2024 Yonsei–NEXON √i RC Creative Platform.
+                            Selected as a peer mentor based on prior competition performance (former 1st-place team). 
+                            Provided guidance to participating teams and received an official mentoring certificate.
                         </p>
                         <p class="award-footer">Dean, RC Education Center Yonsei Uni. 2024</p>
                         </div>
 
                         <!-- SINGLE AWARD BLOCK -->
                         <div class="award-item">
-                        <p class="award-title">Yonsei–NEXON Creative Platform 1st Place</p>
+                        <p class="award-title">Honor Roll</p>
                         <p class="award-desc">
-                            This certificate is proudly presented to the student
-                            in recognition of outstanding performance
-                            at the 2021 Yonsei–NEXON √i RC Creative Platform Competition.
+                            Awarded in recognition of commendable academic achievement.
+                        </p>
+                        <p class="award-footer">President of Yonsei Univ. 2022</p>
+                        </div>
+
+                        <!-- SINGLE AWARD BLOCK -->
+                        <div class="award-item">
+                        <p class="award-title">1st Place, Yonsei–Nexon RC Creative Platform</p>
+                        <p class="award-desc">
+                            Won 1st place in a university-wide social-impact startup ideation competition co-hosted with Nexon. 
+                            Led a 5-member team to design an automated revolving-door assistance system to improve safe building 
+                            access for people with mobility impairments. Developed a 3D-printed prototype and presented the 
+                            design rationale (safety, practicality, community impact) to judges and organizers; ranked 1st of 90 
+                            teams and awarded $10K.
                         </p>
                         <p class="award-footer">Dean, RC Education Center Yonsei Uni. 2021</p>
                         </div>
 
                         <!-- SINGLE AWARD BLOCK -->
                         <div class="award-item">
-                        <p class="award-title">Honor Roll</p>
+                        <p class="award-title">Finalist, VEX Robotics World Championship</p>
                         <p class="award-desc">
-                            This certificate is hereby awarded in recognition of the aforementioned student's commendable Academic 
-                            Achievement demonstrated during the second semester of the 2021 academic year.
+                            Competed at the VEX Robotics World Championship (approximately 600 qualifying teams). Ranked 
+                            as a Science Division finalist (top finish within a 100-team division), advancing to the division final 
+                            and narrowly missing qualification to the round-robin finals against the top teams from other divisions.
                         </p>
-                        <p class="award-footer">President of Yonsei Univ. Fall, 2021</p>
+                        <p class="award-footer">Kentucky, USA 2019</p>
+                        </div>
+
+                        <!-- SINGLE AWARD BLOCK -->
+                        <div class="award-item">
+                        <p class="award-title">1st Place, VEX Robotics Canada BC Provincial Championship</p>
+                        <p class="award-desc">
+                            Led Team 1010B to qualify for Provincials via a regional championship, then won 1st place in British 
+                            Columbia Provincials, earning qualification to the VEX Robotics World Championship.
+                        </p>
+                        <p class="award-footer">British Columbia, Canada 2019</p>
                         </div>
 
                     </div>
@@ -333,7 +345,7 @@
             <footer class="footer">
                 <div class="footer-overlay">
                     <div class="footer-left">
-                        <img src="assets/signature.png" alt="Signature" class="footer-logo">
+                        <img src="assets/global/signature.png" alt="Signature" class="footer-logo">
                     </div>
                     <div class="footer-center">
                         <p>© 2025 Jinha Choi</p>
@@ -341,10 +353,10 @@
                     <div class="footer-right">
                         <div class="social-icons">
                             <a href="https://instagram.com/daniel.c.hoi" target="_blank">
-                                <img src="assets/instagram-color.webp" alt="Instagram" class="footer-icon">
+                                <img src="assets/global/instagram-color.webp" alt="Instagram" class="footer-icon">
                             </a>
                             <a href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank">
-                                <img src="assets/linkedin-blue.webp" alt="LinkedIn" class="footer-icon">
+                                <img src="assets/global/linkedin-blue.webp" alt="LinkedIn" class="footer-icon">
                             </a>
                         </div>
                         <p class="footer-email">jinhac174@gmail.com</p>

@@ -10,7 +10,7 @@
 <body class="home">
 
   <!-- Signature -->
-  <img src="assets/signature.png" alt="Signature" class="signature">
+  <img src="assets/global/signature.png" alt="Signature" class="signature">
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -34,17 +34,9 @@
         <li class="dropdown">
           <a href="yonsei.html">Yonsei</a>
           <ul class="dropdown-menu">
-            <li><a href="yonsei.html#campus-life">Campus Life</a></li>
             <li><a href="yonsei.html#courses">Courses</a></li>
             <li><a href="yonsei.html#awards">Awards</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="life.html">Life</a>
-          <ul class="dropdown-menu">
-            <li><a href="life.html#food">Food & Whiskey</a></li>
-            <li><a href="life.html#travel">Travel</a></li>
-            <li><a href="life.html#concert">Concert</a></li>
+            <li><a href="yonsei.html#campus-life">Campus Life</a></li>
           </ul>
         </li>
       </ul>
@@ -52,10 +44,10 @@
 
     <div class="nav-right">
       <a href="https://instagram.com/daniel.c.hoi" target="_blank">
-        <img src="assets/instagram.png" alt="Instagram" class="social-icon">
+        <img src="assets/global/instagram.png" alt="Instagram" class="social-icon">
       </a>
       <a href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank">
-        <img src="assets/linkedin.png" alt="LinkedIn" class="social-icon">
+        <img src="assets/global/linkedin.png" alt="LinkedIn" class="social-icon">
       </a>
     </div>
   </nav>
@@ -64,8 +56,8 @@
   <div class="snap-container">
 
     <!-- Hero Section -->
-    <header id="top" class="hero-section" style="background-image: url('assets/background.jpg');">
-      <img src="assets/JinhaChoi.png" alt="Jinha Choi" class="home-logo">
+    <header id="top" class="hero-section" style="background-image: url('assets/home/background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+      <img src="assets/home/JinhaChoi.png" alt="Jinha Choi" class="home-logo">
     </header>
 
     <!-- Content + Footer as ONE section (like research.html) -->
@@ -75,30 +67,35 @@
       <section id="about" class="inline-section about-inline">
         <div class="content-inner">
           
-          <img src="assets/aboutme.png" alt="About Me" class="about-title-img">
+          <img src="assets/home/aboutme.png" alt="About Me" class="about-title-img">
 
           <!-- Intro block: portrait + one-liner -->
-          <div class="about-intro">
-            <img src="assets/jinha.jpg" alt="Jinha Choi" class="about-photo">
+          <div class="about-intro" style="margin-bottom: 0.5rem;">
+            <img src="assets/home/jinha.jpg" alt="Jinha Choi" class="about-photo">
             <p class="about-tagline">Undergraduate Research Intern / Senior Student @ Yonsei University</p>
           </div>
 
-          <h3>Bio</h3>
-          <p>Hi! I am Jinha Choi, an undergraduate senior student at Yonsei University, working as a research intern at RLLAB (Yonsei) 
-            advised by prof. Youngwoon Lee. I am majoring in Nano Science and Engineering (NSE), double majoring in Computer Science.
-            I expect to receive my bachelor's degree in Feb 2027. I am deeply interested in robot learning, especially natural and efficient
-            humanoid loco-manipulation. My current interest lies in end-to-end reinforcement learning for humanoid control — learning motion 
-            priors through joint-group representations and transferring them to goal-conditioned RL.</p>
+          <!-- CV Button -->
+          <div style="text-align: center; margin: 0 0 1rem 0;">
+            <a href="assets/home/CV.pdf" target="_blank" class="cv-btn" style="background-color: #e5d5a8;">CV</a>
+          </div>
+
+          <h3 style="margin-top: 0;">Bio</h3>
+          <p style="text-align: justify;">Hi! I am Jinha Choi, an undergraduate senior student at Yonsei University, working as a research intern at DILLAB (Yonsei) 
+            advised by prof. Jongmin Lee. I am majoring in Nano Science and Engineering (NSE), and double majoring in Computer Science.
+            I expect to receive my bachelor's degree in Feb 2027. I previously worked on natural and efficient humanoid loco-manipulation.
+            I worked on natural and scalable humanoid learning by functionizing body parts with the goal-conditioned transformer 
+            architecture. My current interest lies in reinforcement learning algorithms with strong mathematical foundations.</p>
           
           <h3>Background</h3>
-          <p>I was born in Aug 22, 2002 in Seoul, South Korea. I graduated elementary school with some experience in robotics and lots of 
+          <p style="text-align: justify;">I was born in Aug 22, 2002 in Seoul, South Korea. I graduated elementary school with some experience in robotics and lots of 
             experience and training in soccer, then I moved to Vancouver, Canada in Aug 2014. I continued to play soccer for all the years
             until highschool graduation, winning several leagues and tournaments as a key player. In 2017, I joined Vex Robotics program
             supported in West Vancouver Secondary School. As the team lead, I managed designing, engineering, building, wiring, programming,
-            and driving. Winnig several regionals, I qualified to World Championship held yearly in Kentucky, which hosts 600 teams from 
+            and driving. Winnig several regionals and provincials (British Columbia, Canada), I qualified to World Championship held yearly in Kentucky, which hosts 600 teams from 
             around the world. I placed around 32nd in the tournament, and it was a great experience.
           </p>
-          <p>I completed International Baccalaureate Diploma program at WVSS, and graduated highschool at WVSS. In 2020, I returned to Seoul,
+          <p style="text-align: justify;">I completed International Baccalaureate Diploma program at WVSS, and graduated highschool at WVSS. In 2020, I returned to Seoul,
             South Korea, and began my undergraduate program at Yonsei University in 2021. I completed my mandatory military service at Korea
             Defense Intelligence Command during 2023~2024, and now I am back at Yonsei, working as a research intern.
           </p>
@@ -155,7 +152,7 @@
                 </div>
                 <div class="desc">
                   <b>Mandatory Military Service</b><br>
-                  Korea Defense Intelligence Command
+                  Korea Defense Intelligence Command, Republic of Korea Army
                 </div>
               </div>
             </li>
@@ -168,7 +165,7 @@
                 </div>
                 <div class="desc">
                   <b>B.S. Student</b><br>
-                  Nano Science & Engineering | Computer Science
+                  Nano Science & Engineering | Computer Science (Double Major)
                 </div>
               </div>
             </li>
@@ -217,14 +214,14 @@
         <div id="contacts-content" class="inline-content">
           <div class="content-wrapper contact-page">
             
-            <img src="assets/getintouch.png" alt="Get in Touch" class="contact-title-img">
+            <img src="assets/home/getintouch.png" alt="Get in Touch" class="contact-title-img">
 
             <!-- 2 COLUMN SECTION -->
             <div class="contact-wrapper">
               
               <!-- LEFT COLUMN -->
               <div class="contact-left">
-                <img src="assets/email-black.png" alt="Email" class="email-main-icon">
+                <img src="assets/home/email.png" alt="Email" class="email-main-icon">
                 <p class="contact-main-text">For reaching out and inquiries, please email:</p>
                 <p class="contact-email">
                   <a>jinhac174@gmail.com</a>
@@ -280,19 +277,19 @@
               <div class="contact-icons centered-icons">
                 <!-- Email -->
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jinhac174@gmail.com"
-                  target="_blank"><img src="assets/email.png" alt="Email" class="email-icon"></a>
+                  target="_blank"><img src="assets/home/email.png" alt="Email" class="email-icon"></a>
 
                 <!-- CV -->
-                <a href="assets/CV.pdf" target="_blank" class="cv-btn">CV</a>
+                <a href="assets/home/CV.pdf" target="_blank" class="cv-btn" style="background-color: #e5d5a8;">CV</a>
 
                 <!-- GitHub -->
-                <a href="https://github.com/jinhac174" target="_blank"><img src="assets/github.svg" alt="GitHub"></a>
+                <a href="https://github.com/jinhac174" target="_blank"><img src="assets/home/github.svg" alt="GitHub"></a>
 
                 <!-- Instagram -->
-                <a href="https://instagram.com/daniel.c.hoi" target="_blank"><img src="assets/instagram-color.webp" alt="Instagram"></a>
+                <a href="https://instagram.com/daniel.c.hoi" target="_blank"><img src="assets/global/instagram-color.webp" alt="Instagram"></a>
 
                 <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank"><img src="assets/linkedin-blue.webp" alt="LinkedIn"></a>
+                <a href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank"><img src="assets/global/linkedin-blue.webp" alt="LinkedIn"></a>
               </div>
             </div>
 
@@ -304,7 +301,7 @@
       <footer class="footer">
         <div class="footer-overlay">
           <div class="footer-left">
-            <img src="assets/signature.png" alt="Signature" class="footer-logo">
+            <img src="assets/global/signature.png" alt="Signature" class="footer-logo">
           </div>
           <div class="footer-center">
             <p>© 2025 Jinha Choi</p>
@@ -312,10 +309,10 @@
           <div class="footer-right">
             <div class="social-icons">
               <a href="https://instagram.com/daniel.c.hoi" target="_blank">
-                <img src="assets/instagram-color.webp" alt="Instagram" class="footer-icon">
+                <img src="assets/global/instagram-color.webp" alt="Instagram" class="footer-icon">
               </a>
               <a href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank">
-                <img src="assets/linkedin-blue.webp" alt="LinkedIn" class="footer-icon">
+                <img src="assets/global/linkedin-blue.webp" alt="LinkedIn" class="footer-icon">
               </a>
             </div>
             <p class="footer-email">jinhac174@gmail.com</p>
