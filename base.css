@@ -1,0 +1,58 @@
+/* =========================
+   01) Reset + tokens + type
+   ========================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+:root{
+  --font-title: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
+  --text: #1f2a37;
+  --muted: rgba(31,42,55,0.70);
+  --border: rgba(0,0,0,0.08);
+
+  --nav-h: 65px;
+  --container: 1200px;
+
+  --pad-x: 24px;
+
+  --shadow-top: 0 8px 22px rgba(0,0,0,0.05);
+  --shadow-bottom: 0 -8px 22px rgba(0,0,0,0.05);
+
+  --accent: #5aa9ff;
+}
+
+body{
+  font-family: var(--font-body);
+  color: var(--text);
+  overflow: hidden; /* scroll happens in .snap-container */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3{
+  font-family: var(--font-title);
+  font-weight: 500;
+}
+
+/* Section titles: Playfair by default */
+.section h2{
+  font-family: var(--font-title);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Ampersand override */
+.amp{
+  font-family: "Times New Roman", Times, Georgia, serif;
+  font-weight: 600;
+}
+
+.about-body p{
+  margin: 0 0 14px 0;   /* space after each paragraph */
+  text-align: justify;
+}
+.about-body p + p{
+  margin-top: 12px;     /* extra space between paragraphs */
+}

@@ -1,0 +1,137 @@
+/* ===========================
+   GLOBAL RESET & BASE STYLES
+=========================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { height: 100%; }
+body { font-family: Arial, sans-serif; color: #333; line-height: 1.6; }
+
+/* Never define page-level snap globally */
+html, body { scroll-snap-type: none; }
+
+/* ===========================
+   SIGNATURE (shared)
+=========================== */
+.signature {
+  position: absolute;
+  top: 45px; left: 50px;
+  height: 40px; object-fit: contain;
+  z-index: 1100;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+/* ===========================
+   NAVBAR (shared)
+=========================== */
+.navbar {
+  position: absolute;
+  top: 30px; width: 100%;
+  padding: 1rem 2rem;
+  display: flex; justify-content: center; align-items: center;
+  background: none; z-index: 1000;
+  transition: opacity .25s ease, transform .25s ease, padding .25s ease, background-color .25s ease, backdrop-filter .25s ease;
+}
+.nav-center { position: absolute; left: 50%; transform: translateX(-50%); }
+.nav-links { list-style: none; display: flex; gap: 2.5rem; }
+.nav-links > li > a {
+  display: inline-block; padding: 0.5rem 1rem;
+  font: bold 18px/1 Arial, sans-serif;
+  color: #222; text-decoration: none; border-radius: 10px;
+  transition: transform 0.3s, color 0.3s;
+}
+.nav-links > li > a.active { transform: scale(1.35); color: #000; }
+.nav-links > li > a:not(.active):hover { transform: scale(1.15); }
+
+/* Dropdown (shared) */
+.dropdown { position: relative; }
+.dropdown:hover > .dropdown-menu { opacity: 1; visibility: visible; transform: translate(-50%,0); }
+.dropdown:hover > a { transform: scale(1.15); }
+.dropdown:hover > a.active { transform: scale(1.5); }
+.dropdown-menu {
+  position: absolute; top: 100%; left: 50%;
+  opacity: 0; visibility: hidden; transform: translate(-50%,10px);
+  list-style: none; padding: 0.5rem 0; text-align: center; z-index: 2000;
+  transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+}
+.dropdown-menu li { min-width: 160px; }
+.dropdown-menu a {
+  display: block; padding: 0.4rem 0.8rem; font-size: 14px;
+  color: #222; text-decoration: none; transition: transform 0.2s;
+}
+.dropdown-menu a:hover { transform: scale(1.08); }
+
+/* Nav right icons (shared) */
+.nav-right { margin-left: auto; margin-right: 20px; display: flex; align-items: center; gap: 1rem; }
+
+/* ===========================
+   SOCIAL ICONS (shared)
+=========================== */
+.social-icon {
+  width: 28px; height: 28px; object-fit: contain;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.social-icon:hover { transform: scale(1.1); opacity: 0.8; }
+
+.footer-icon {
+  width: 40px; height: 40px; object-fit: contain;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.footer-icon:hover { transform: scale(1.1); opacity: 0.8; }
+
+/* ===========================
+   PARALLAX HELPER (shared)
+=========================== */
+.parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ===========================
+   BUTTONS (shared)
+=========================== */
+.btn {
+  display: inline-block; margin-top: 1rem; padding: 0.6rem 1.2rem;
+  background: #333; color: #fff; border-radius: 6px; text-decoration: none;
+  transition: background 0.3s;
+}
+.btn:hover { background: #0bdbe6; color: #000; }
+
+/* ===========================
+   FOOTER (visuals only; no snap here)
+=========================== */
+.footer {
+  background: #fff;
+  color: #111;
+  width: 100%;
+  min-height: 216px;              /* 3/5 of 360 */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-top: 1px solid rgba(0,0,0,0.12);
+  box-shadow: 0 -10px 24px rgba(0,0,0,0.08);
+}
+
+.footer-overlay {
+  position: absolute; inset: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 2rem 20%;
+}
+.footer-left .footer-logo { height: 80px; }
+.footer-center { position: absolute; left: 50%; transform: translateX(-50%); font-size: 1rem; font-weight: 600; color: #fff; }
+.footer-right { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+.footer-right .social-icons { display: flex; gap: 50px; }
+.footer-right .footer-email { margin-top: 2.3rem; font-size: 1rem; font-weight: 600; color: #fff; }
+
+/* ===========================
+   NAVBAR HIDE STATES (shared)
+=========================== */
+.navbar.nav--hide { opacity: 0; transform: translateY(-20px); pointer-events: none; }
+.signature.sig--hide { opacity: 0; transform: translateY(-6px); pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar, .signature { transition: none; }
+}
