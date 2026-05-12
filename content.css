@@ -651,6 +651,42 @@
   display: block;
 }
 
+/* Placeholder used when a publication has no logo image yet */
+.pub-logo-placeholder{
+  width: 250px;
+  height: 160px;
+  border: 1px dashed rgba(90,169,255,0.55);
+  background: rgba(90,169,255,0.06);
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-family: var(--font-body);
+  color: #2f6fdf;
+  text-align: center;
+  user-select: none;
+}
+
+.pub-badge-venue{
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: #1f4ea8;
+}
+
+.pub-badge-status{
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #2f6fdf;
+  opacity: 0.85;
+}
+
 .pub-main{ min-width: 0; }
 
 @media (max-width: 700px){
