@@ -646,14 +646,14 @@
 .pub-row{
   display: grid;
   gap: 28px;
-  grid-template-columns: 340px 1fr;   /* fixed logo column */
+  grid-template-columns: 380px 1fr;   /* fixed logo column */
   align-items: start;
 }
 
 .pub-logo{
-  width: 340px;
+  width: 380px;
   height: auto;
-  max-height: 340px;
+  max-height: 380px;
   object-fit: contain;
   object-position: center;
   display: block;
@@ -662,7 +662,7 @@
 /* Placeholder used when a publication has no logo image yet.
    Width matches .pub-logo so all pub rows align; aspect 5/2 ≈ matches the SPOT image's natural ratio. */
 .pub-logo-placeholder{
-  width: 340px;
+  width: 380px;
   aspect-ratio: 5 / 2;
   height: auto;
   border: 1px dashed rgba(90,169,255,0.55);
@@ -706,7 +706,7 @@
   .pub-logo,
   .pub-logo-placeholder{
     width: 100%;
-    max-width: 340px;
+    max-width: 380px;
     height: auto;
   }
 }
