@@ -635,6 +635,14 @@
   border-color: rgba(90,169,255,0.55);
 }
 
+.pub-link-disabled{
+  cursor: default;
+  opacity: 0.55;
+  color: #6b7280;
+}
+.pub-link-disabled:hover::before{ height: 0; }
+.pub-link-disabled:hover{ border-color: rgba(0,0,0,0.12); }
+
 .pub-row{
   display: grid;
   gap: 28px;
