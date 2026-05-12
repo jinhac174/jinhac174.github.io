@@ -712,6 +712,16 @@
   box-shadow: 0 10px 26px rgba(0,0,0,0.06);
 }
 
+.robotics-card + .robotics-card{
+  margin-top: 22px;
+}
+
+.robotics-card-secondary{
+  padding: 24px 28px 22px;
+}
+.robotics-card-secondary .robotics-title{ font-size: 22px; }
+.robotics-card-secondary .robotics-desc{ font-size: 14px; }
+
 .robotics-title{
   font-family: var(--font-title);
   font-size: 26px;
