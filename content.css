@@ -637,15 +637,15 @@
 
 .pub-row{
   display: grid;
-  gap: 22px;
-  grid-template-columns: 250px 1fr;   /* fixed logo column */
-  align-items: start; 
+  gap: 28px;
+  grid-template-columns: 340px 1fr;   /* fixed logo column */
+  align-items: start;
 }
 
 .pub-logo{
-  width: 250px;
+  width: 340px;
   height: auto;
-  max-height: 250px;
+  max-height: 340px;
   object-fit: contain;
   object-position: center;
   display: block;
@@ -653,8 +653,8 @@
 
 /* Placeholder used when a publication has no logo image yet */
 .pub-logo-placeholder{
-  width: 250px;
-  height: 160px;
+  width: 340px;
+  height: 220px;
   border: 1px dashed rgba(90,169,255,0.55);
   background: rgba(90,169,255,0.06);
   border-radius: 12px;
@@ -693,12 +693,107 @@
   .pub-row{
     grid-template-columns: 1fr;
   }
-  .pub-logo{
-    width: 72px;
-    height: 72px;
+  .pub-logo,
+  .pub-logo-placeholder{
+    width: 100%;
+    max-width: 340px;
+    height: auto;
   }
 }
 
+
+/* --------------------------------------------------- Robotics -------------------------------------------------------------------- */
+.robotics-card{
+  margin-top: 44px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 14px;
+  padding: 30px 32px 28px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+}
+
+.robotics-title{
+  font-family: var(--font-title);
+  font-size: 26px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 8px 0;
+}
+
+.robotics-sub{
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  margin: 0 0 20px 0;
+}
+
+.robotics-desc{
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: #1f2a37;
+  line-height: 1.75;
+  margin: 0 0 26px 0;
+}
+
+.robotics-achievements{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.robo-badge{
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(90,169,255,0.35);
+  background: rgba(90,169,255,0.06);
+  border-left-width: 5px;
+}
+
+.robo-badge.gold{
+  border-color: rgba(212,160,23,0.35);
+  border-left-color: #d4a017;
+  background: rgba(212,160,23,0.07);
+}
+
+.robo-badge.silver{
+  border-color: rgba(140,148,160,0.40);
+  border-left-color: #8c94a0;
+  background: rgba(140,148,160,0.07);
+}
+
+.robo-badge-rank{
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2f6fdf;
+  margin-bottom: 6px;
+}
+.robo-badge.gold .robo-badge-rank{ color: #b8860b; }
+.robo-badge.silver .robo-badge-rank{ color: #5f6776; }
+
+.robo-badge-title{
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  color: #111827;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.robo-badge-sub{
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #6b7280;
+}
+
+@media (max-width: 700px){
+  .robotics-achievements{ grid-template-columns: 1fr; }
+}
 
 /* --------------------------------------------------- Honors and rewards -------------------------------------------------------------------- */
 
@@ -712,30 +807,80 @@
   vertical-align: baseline;
 }
 
-/* one card per row */
+/* 2-column responsive grid */
 #honors .awards-grid{
   margin-top: 54px;
   display: grid;
-  grid-template-columns: 1fr;   /* ONE item per row */
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
 
 /* card */
 #honors .award-card{
+  display: flex;
+  flex-direction: column;
   background: #ffffff;
   border: 1px solid rgba(0,0,0,0.10);
   border-radius: 14px;
-  padding: 18px 20px 16px;
+  padding: 20px 22px 18px;
+  border-left-width: 5px;
 }
 
-/* Award NAME (do NOT call it title) */
+#honors .award-card.gold   { border-left-color: #d4a017; }
+#honors .award-card.silver { border-left-color: #8c94a0; }
+#honors .award-card.blue   { border-left-color: #5aa9ff; }
+
+/* Header row: icon + year pill */
+#honors .award-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+#honors .award-icon{
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #2f6fdf;
+}
+#honors .award-icon svg{ width: 100%; height: 100%; display: block; }
+#honors .award-card.gold   .award-icon{ color: #b8860b; }
+#honors .award-card.silver .award-icon{ color: #5f6776; }
+
+#honors .award-year{
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(90,169,255,0.10);
+  border: 1px solid rgba(90,169,255,0.30);
+  color: #2f6fdf;
+  white-space: nowrap;
+}
+#honors .award-card.gold .award-year{
+  background: rgba(212,160,23,0.10);
+  border-color: rgba(212,160,23,0.35);
+  color: #b8860b;
+}
+#honors .award-card.silver .award-year{
+  background: rgba(140,148,160,0.10);
+  border-color: rgba(140,148,160,0.40);
+  color: #5f6776;
+}
+
+/* Award name */
 #honors .award-name{
-  font-family: var(--font-body);   /* looks like a “heading”, consistent with your site */
-  font-size: 18px;
+  font-family: var(--font-body);
+  font-size: 17px;
   font-weight: 600;
   color: #111827;
   line-height: 1.35;
-  margin: 0 0 14px 0;
+  margin: 0 0 10px 0;
 }
 
 /* Award description */
@@ -744,17 +889,21 @@
   font-size: 14px;
   font-weight: 500;
   color: #4b5563;
-  line-height: 1.7;
-  margin: 0 0 10px 0;
+  line-height: 1.65;
+  margin: 0 0 12px 0;
 }
 
-/* Award footer (who/where/year) */
+/* Award footer (institution) */
 #honors .award-footer{
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 700;
   color: #6b7280;
-  margin: 0;
+  margin: auto 0 0 0;
+}
+
+@media (max-width: 900px){
+  #honors .awards-grid{ grid-template-columns: 1fr; }
 }
 
 
