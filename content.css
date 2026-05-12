@@ -651,9 +651,14 @@
   display: block;
 }
 
+/* Narrower column for placeholder-only rows so the card doesn't tower over the text */
+.pub-row:has(.pub-logo-placeholder){
+  grid-template-columns: 220px 1fr;
+}
+
 /* Placeholder used when a publication has no logo image yet */
 .pub-logo-placeholder{
-  width: 340px;
+  width: 220px;
   aspect-ratio: 16 / 9;     /* matches typical paper teaser proportion */
   height: auto;
   border: 1px dashed rgba(90,169,255,0.55);
