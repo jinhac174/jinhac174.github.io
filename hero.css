@@ -42,30 +42,6 @@
   text-shadow: 0 2px 12px rgba(0,0,0,0.35);
 }
 
-/* top-right socials */
-.hero-social {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  z-index: 2;
-}
-
-.hero-social img {
-  width: 35px;  /* slightly larger than your 40px */
-  height: 35px;
-  object-fit: contain;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.hero-social a:hover img {
-  transform: scale(1.08);
-  opacity: 0.85;
-}
-
 /* chevron cue */
 .scroll-cue {
   position: absolute;

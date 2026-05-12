@@ -175,8 +175,7 @@
   font-size: 28px;
   font-weight: 600;
   color: #111827;
-  margin: 0 0 14px 0;
-  margin-bottom: 22px;
+  margin: 0 0 22px 0;
 }
 
 .about-body{
@@ -252,31 +251,17 @@
 
 /* icon/text above the fill layer */
 .info-ico,
-.info-label,
-.info-cv{
+.info-label{
   position: relative;
   z-index: 1;
 }
 
 .info-ico{
   width: 34px;
-  height: auto;          /* key */
-  max-height: 34px;      /* keeps it from getting too tall */
+  height: auto;
+  max-height: 34px;
   object-fit: contain;
   display: block;
-}
-
-.info-cv{
-  width: 46px;
-  height: 34px;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  font-family: var(--font-body);
-  color: #2f6fdf;
-  border: 1px solid rgba(90,169,255,0.45);
-  background: rgba(90,169,255,0.10);
 }
 
 .info-label{
@@ -560,22 +545,11 @@
 
 
 /* --------------------------------------------------- Publication -------------------------------------------------------------------- */
-.pub-header-img{
-  width: 260px;
-  height: auto;
-  display: block;
-  margin: 30px auto 0;
-}
-
 .pub-list{
   margin-top: 100px;
 }
 
-.pub-item{
-  padding: 0 0 18px 0;
-  margin: 0;
-  border-bottom: none; /* remove from base */
-}
+.pub-item{ padding: 0 0 18px 0; margin: 0; }
 
 .pub-item:not(:last-child){
   margin-bottom: 18px;
@@ -700,14 +674,6 @@
   font-weight: 700;
   font-size: 0.95em;                /* slightly smaller than title glyphs */
   vertical-align: baseline;
-}
-
-/* optional header image */
-#honors .awards-header-img{
-  width: 195px;
-  height: auto;
-  display: block;
-  margin: 44px auto 0;
 }
 
 /* one card per row */

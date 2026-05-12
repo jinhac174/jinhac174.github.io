@@ -97,7 +97,7 @@
                 </p>
 
                 <div class="about-links">
-                  <a class="info-card" href="assets/content/about/CV.pdf" target="_blank" rel="noopener">
+                  <a class="info-card" href="assets/CV.pdf" target="_blank" rel="noopener">
                     <img class="info-ico" src="assets/content/about/cv.webp" alt="CV">
                     <div class="info-label">Curriculum Vitae</div>
                   </a>
@@ -291,7 +291,7 @@
 
                 <div class="pub-links">
                   <a class="pub-link" href="https://arxiv.org/abs/2505.11855" target="_blank" rel="noopener">arXiv</a>
-                  <a class="pub-link" href="assets/research/pub1.pdf" target="_blank" rel="noopener">Paper</a>
+                  <a class="pub-link" href="assets/content/publications/pub1.pdf" target="_blank" rel="noopener">Paper</a>
                 </div>
               </div>
             </article>
@@ -402,7 +402,7 @@
       <footer class="site-footer">
         <div class="footer-inner">
           <div class="footer-icons">
-            <a class="footer-cv" href="assets/footer/CV.pdf" target="_blank" rel="noopener">CV</a>
+            <a class="footer-cv" href="assets/CV.pdf" target="_blank" rel="noopener">CV</a>
 
             <a href="https://github.com/jinhac174" target="_blank" rel="noopener" aria-label="GitHub">
               <img src="assets/footer/github.svg" alt="GitHub">
@@ -442,6 +442,19 @@
 
     if (!container || !hero || !contentWrap || !nav) return;
 
+    const navH = () => nav.offsetHeight || 60;
+
+    // Restore scroll position before paint
+    const SCROLL_KEY = 'snap_scrollTop_v1';
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    const saved = sessionStorage.getItem(SCROLL_KEY);
+    if (saved !== null) {
+      const prev = container.style.scrollBehavior;
+      container.style.scrollBehavior = 'auto';
+      container.scrollTop = Number(saved) || 0;
+      requestAnimationFrame(() => { container.style.scrollBehavior = prev || ''; });
+    }
+
     // Chevron scroll into content snap
     if (cue) {
       cue.addEventListener('click', () => {
@@ -449,143 +462,86 @@
       });
     }
 
-    // Navbar visible only when hero is not primary view
+    // Navbar + back-to-top visible only when hero is not primary view
     const heroIO = new IntersectionObserver(([entry]) => {
       const onHero = entry.isIntersecting && entry.intersectionRatio >= 0.6;
       nav.classList.toggle('is-visible', !onHero);
-
       if (toAboutBtn) toAboutBtn.classList.toggle('is-visible', !onHero);
     }, { root: container, threshold: [0, 0.6] });
-
     heroIO.observe(hero);
 
     if (toAboutBtn && about) {
       toAboutBtn.addEventListener('click', () => {
-        const NAV_H = nav.offsetHeight || 60;
-        container.scrollTo({ top: about.offsetTop - NAV_H, behavior: 'smooth' });
+        container.scrollTo({ top: about.offsetTop - navH(), behavior: 'smooth' });
       });
     }
 
     // Snap gate: snap near hero, free scroll in content
     const EXTRA_ZONE = 200;
     function updateSnapMode() {
-      const y = container.scrollTop;
-      const h = Math.max(1, hero.offsetHeight);
-      const inMandatory = y <= (h + EXTRA_ZONE);
+      const inMandatory = container.scrollTop <= (Math.max(1, hero.offsetHeight) + EXTRA_ZONE);
       container.style.scrollSnapType = inMandatory ? 'y mandatory' : 'none';
     }
-    container.addEventListener('scroll', () => requestAnimationFrame(updateSnapMode), { passive: true });
     window.addEventListener('resize', updateSnapMode);
     window.addEventListener('load', updateSnapMode);
     updateSnapMode();
 
-
-    // ===== Active nav highlight (most visible on screen) =====
+    // Active nav highlight (most visible section)
     const links = Array.from(nav.querySelectorAll('.navlink'));
     const sections = links
       .map(a => document.querySelector(a.getAttribute('href')))
       .filter(Boolean);
 
-    if (!links.length || !sections.length) return;
-
     const setActive = (id) => {
       links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`));
     };
 
-    let ticking = false;
-
     function updateActiveByVisibility() {
       ticking = false;
+      if (!sections.length) return;
 
-      const NAV_H = nav.offsetHeight || 60;
       const containerRect = container.getBoundingClientRect();
-
-      // viewport inside the scroll container, excluding sticky nav height
-      const viewTop = containerRect.top + NAV_H;
+      const viewTop = containerRect.top + navH();
       const viewBottom = containerRect.bottom;
 
       let best = null;
       let bestVisible = -1;
-
       for (const sec of sections) {
         const r = sec.getBoundingClientRect();
-
-        // intersection height of section with the usable viewport area
-        const visibleTop = Math.max(r.top, viewTop);
-        const visibleBottom = Math.min(r.bottom, viewBottom);
-        const visible = Math.max(0, visibleBottom - visibleTop);
-
-        if (visible > bestVisible) {
-          bestVisible = visible;
-          best = sec;
-        }
+        const visible = Math.max(0, Math.min(r.bottom, viewBottom) - Math.max(r.top, viewTop));
+        if (visible > bestVisible) { bestVisible = visible; best = sec; }
       }
-
       if (best) setActive(best.id);
     }
 
-    // Perfect anchor scroll: align section top just under sticky nav
+    // Anchor scroll: align section top just under sticky nav
     links.forEach(a => {
       a.addEventListener('click', (e) => {
         const href = a.getAttribute('href');
         if (!href || !href.startsWith('#')) return;
-
         const target = document.querySelector(href);
         if (!target) return;
-
         e.preventDefault();
-
-        const NAV_H = nav.offsetHeight || 60;
-        const y = target.offsetTop - NAV_H;
-
-        container.scrollTo({ top: y, behavior: 'smooth' });
+        container.scrollTo({ top: target.offsetTop - navH(), behavior: 'smooth' });
       });
     });
 
+    // Single scroll listener handles snap-mode, active-link, and persistence
+    let ticking = false;
     container.addEventListener('scroll', () => {
+      sessionStorage.setItem(SCROLL_KEY, String(container.scrollTop));
       if (!ticking) {
         ticking = true;
-        requestAnimationFrame(updateActiveByVisibility);
+        requestAnimationFrame(() => { updateSnapMode(); updateActiveByVisibility(); });
       }
     }, { passive: true });
 
     window.addEventListener('resize', () => requestAnimationFrame(updateActiveByVisibility));
-    updateActiveByVisibility();
-
-
-  })();
-  </script>
-
-  <script>
-  (() => {
-    const container = document.querySelector('.snap-container');
-    if (!container) return;
-
-    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    const KEY = 'snap_scrollTop_v1';
-
-    // Read saved value immediately
-    const saved = sessionStorage.getItem(KEY);
-
-    // Restore ASAP (before paint) + no smooth animation during restore
-    if (saved !== null) {
-      const prevBehavior = container.style.scrollBehavior;
-      container.style.scrollBehavior = 'auto';
-      container.scrollTop = Number(saved) || 0;
-      // restore scrollBehavior next frame
-      requestAnimationFrame(() => {
-        container.style.scrollBehavior = prevBehavior || '';
-      });
-    }
-
-    // Save as you scroll
-    container.addEventListener('scroll', () => {
-      sessionStorage.setItem(KEY, String(container.scrollTop));
-    }, { passive: true });
-
     window.addEventListener('beforeunload', () => {
-      sessionStorage.setItem(KEY, String(container.scrollTop));
+      sessionStorage.setItem(SCROLL_KEY, String(container.scrollTop));
     });
+
+    updateActiveByVisibility();
   })();
   </script>
 
