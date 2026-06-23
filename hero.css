@@ -1,6 +1,4 @@
-/* =========================
-   02) Hero
-   ========================= */
+/* ========================= 02) Hero ========================= */
 .hero {
   height: 100vh;
   position: relative;
@@ -10,65 +8,83 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* hero text block: positioned around top 1/3 */
-.hero-text {
+.hero-overlay {
   position: absolute;
-  left: 50%;
-  top: 42%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  padding: 0 1rem;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10,15,35,0.82) 0%,
+    rgba(10,15,35,0.58) 55%,
+    rgba(10,15,35,0.70) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
   z-index: 1;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.58);
+  margin-bottom: 20px;
 }
 
 .hero-name {
-  font-family: var(--font-title);
-  font-size: clamp(2.05rem, 4.4vw, 3.45rem); /* smaller */
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
   font-weight: 500;
-  line-height: 1.02;
   color: #ffffff;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  line-height: 1.05;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
 }
 
-.hero-subtitle {
-  margin-top: 0.6rem;
-  font-family: var(--font-body);
-  font-size: clamp(0.95rem, 1.7vw, 1.35rem); /* smaller */
+.hero-tagline {
+  font-family: var(--font-sans);
+  font-size: clamp(0.88rem, 1.8vw, 1.05rem);
   font-weight: 400;
-  line-height: 1.25;
-  color: #ffffff;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  color: rgba(255,255,255,0.62);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  letter-spacing: 0.015em;
 }
 
-/* chevron cue */
+/* Scroll cue — mouse scroll icon */
 .scroll-cue {
   position: absolute;
+  bottom: 38px;
   left: 50%;
-  top: calc(38% + 350px);
   transform: translateX(-50%);
   background: transparent;
   border: 0;
   padding: 0;
   cursor: pointer;
-  color: #ffffff;
+  color: rgba(255,255,255,0.45);
   z-index: 2;
-  opacity: 0.95;
-  transition: transform 0.18s ease, opacity 0.18s ease;
+  transition: color 0.2s ease;
 }
 
 .scroll-cue:hover {
-  transform: translateX(-50%) translateY(6px) scale(1.18);
-  opacity: 1;
+  color: rgba(255,255,255,0.80);
 }
 
 .scroll-cue svg {
-  width: 54px;
-  height: 54px;
+  width: 24px;
+  height: 40px;
   display: block;
-}
-
-.scroll-cue svg path {
-  stroke-width: 1.8;
 }

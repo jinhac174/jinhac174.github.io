@@ -1,58 +1,61 @@
-/* =========================
-   01) Reset + tokens + type
-   ========================= */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* ========================= 01) Reset + tokens ========================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
 
-:root{
-  --font-title: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-body: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+:root {
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans:  "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
-  --text: #1f2a37;
-  --muted: rgba(31,42,55,0.70);
-  --border: rgba(0,0,0,0.08);
+  --c-950: #0a0f1a;
+  --c-900: #0f172a;
+  --c-800: #1e293b;
+  --c-700: #334155;
+  --c-600: #475569;
+  --c-500: #64748b;
+  --c-400: #94a3b8;
+  --c-300: #cbd5e1;
+  --c-200: #e2e8f0;
+  --c-100: #f1f5f9;
+  --c-50:  #f8fafc;
 
-  --nav-h: 65px;
-  --container: 1200px;
+  --accent:        #2563eb;
+  --accent-dark:   #1d4ed8;
+  --accent-dim:    rgba(37,99,235,0.08);
+  --accent-border: rgba(37,99,235,0.22);
 
-  --pad-x: 24px;
+  --bg:     #ffffff;
+  --bg-alt: #f8fafc;
+  --border: #e2e8f0;
+  --text:   var(--c-900);
+  --muted:  var(--c-500);
 
-  --shadow-top: 0 8px 22px rgba(0,0,0,0.05);
-  --shadow-bottom: 0 -8px 22px rgba(0,0,0,0.05);
+  --nav-h:     60px;
+  --content-w: 1300px;
+  --pad-x:     clamp(20px, 3vw, 52px);
 
-  --accent: #5aa9ff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
 }
 
-body{
-  font-family: var(--font-body);
+body {
+  font-family: var(--font-sans);
   color: var(--text);
-  overflow: hidden; /* scroll happens in .snap-container */
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  line-height: 1.6;
 }
 
-h1, h2, h3{
-  font-family: var(--font-title);
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
   font-weight: 500;
+  line-height: 1.2;
 }
 
-/* Section titles: Playfair by default */
-.section h2{
-  font-family: var(--font-title);
-  font-weight: 500;
-  letter-spacing: 0.01em;
-}
-
-/* Ampersand override */
-.amp{
-  font-family: "Times New Roman", Times, Georgia, serif;
-  font-weight: 600;
-}
-
-.about-body p{
-  margin: 0 0 14px 0;   /* space after each paragraph */
-  text-align: justify;
-}
-.about-body p + p{
-  margin-top: 12px;     /* extra space between paragraphs */
-}
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-dark); }
+strong { font-weight: 600; }
