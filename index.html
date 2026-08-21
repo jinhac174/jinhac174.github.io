@@ -22,9 +22,8 @@
     <header class="hero" id="home">
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <p class="hero-eyebrow">Research Intern &nbsp;·&nbsp; KAIST</p>
         <h1 class="hero-name">Jinha Choi</h1>
-        <p class="hero-tagline">Humanoid Robot Learning &nbsp;·&nbsp; Loco-manipulation &nbsp;·&nbsp; Embodied AI</p>
+        <p class="hero-tagline">Dexterous Manipulation &nbsp;·&nbsp; Humanoid Learning &nbsp;·&nbsp; Embodied AI</p>
       </div>
       <button class="scroll-cue" type="button" aria-label="Scroll to content">
         <!-- Mouse scroll icon with animated wheel -->
@@ -49,7 +48,7 @@
             <li><a class="navlink" href="#about">About</a></li>
             <li><a class="navlink" href="#news">News</a></li>
             <li><a class="navlink" href="#publications">Publications</a></li>
-            <li><a class="navlink" href="#research">Research</a></li>
+            <li><a class="navlink" href="#experience">Experience</a></li>
             <li><a class="navlink" href="#awards">Awards</a></li>
             <li><a class="navlink" href="#contact">Contact</a></li>
           </ul>
@@ -61,18 +60,41 @@
         <div class="section-inner">
           <div class="about-grid">
 
-            <!-- Left: photo + links -->
-            <div class="about-photo-col">
-              <img src="assets/content/about/jinha.jpg" alt="Jinha Choi" class="about-photo"/>
+            <!-- Left: bio -->
+            <div class="about-content">
+              <h2 class="about-name">Jinha Choi</h2>
+
+              <div class="about-bio">
+                <p>
+                  I'm Jinha Choi, an undergraduate student at Yonsei University, South Korea, majoring in Computer
+                  Science and Nano Science and Engineering and expected to graduate in February 2027.
+                </p>
+                <p>
+                  I am currently advised by
+                  <a href="https://scholar.google.com/citations?user=jizxpZYAAAAJ&amp;hl=ko&amp;oi=ao" target="_blank" rel="noopener">Prof. Yonghyeon Lee</a>
+                  at <a href="https://rophi-lab.github.io/" target="_blank" rel="noopener">RoPhi Lab</a> at Yonsei
+                  University, working on high-DoF dexterous manipulation incorporating physics- and control-informed
+                  priors toward generalizable robot intelligence for unstructured environments and real-world
+                  deployment. Previously, I was a research intern at
+                  <a href="https://www.hugelab.org/" target="_blank" rel="noopener">HuGeLab</a> at KAIST, advised by
+                  <a href="https://beomjoonkim.github.io/" target="_blank" rel="noopener">Prof. Beomjoon Kim</a>, where
+                  I worked on real-world deployment of humanoid locomotion policies. I also worked at
+                  <a href="https://dil.yonsei.ac.kr/" target="_blank" rel="noopener">DILLab</a> at Yonsei University,
+                  advised by <a href="https://www.jmlee.kr/" target="_blank" rel="noopener">Prof. Jongmin Lee</a>, on
+                  efficient one-step policy extraction from multi-step behavior-cloning flow policies via optimal
+                  transport.
+                </p>
+              </div>
+
               <div class="about-links">
                 <a class="link-chip" href="assets/CV.pdf" target="_blank" rel="noopener">
                   <img src="assets/content/about/cv.webp" alt=""> CV
                 </a>
-                <a class="link-chip" href="https://github.com/jinhac174" target="_blank" rel="noopener">
-                  <img src="assets/content/about/github.svg" alt=""> GitHub
+                <a class="link-chip" href="https://scholar.google.com/citations?user=HBGZwBkAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+                  <img src="assets/content/about/google scholar.png" alt="" class="scholar-icon"> Scholar
                 </a>
-                <a class="link-chip" href="mailto:jinhac174@gmail.com">
-                  <img src="assets/content/about/email.webp" alt=""> jinhac174@gmail.com
+                <a class="link-chip" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jinhac174@gmail.com" target="_blank" rel="noopener">
+                  <img src="assets/content/about/email.webp" alt=""> Email
                 </a>
                 <a class="link-chip" href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank" rel="noopener">
                   <img src="assets/content/about/linkedin.webp" alt=""> LinkedIn
@@ -80,45 +102,10 @@
               </div>
             </div>
 
-            <!-- Right: bio -->
-            <div class="about-content">
-              <h2 class="about-name">Jinha Choi</h2>
-              <p class="about-affil">
-                Research Intern &nbsp;@&nbsp;
-                <a href="https://www.hugelab.org/" target="_blank" rel="noopener">HuGeLab, KAIST AI Graduate School</a>
-              </p>
-              <p class="about-advisor">
-                Advised by <a href="https://beomjoonkim.github.io" target="_blank" rel="noopener">Prof. Beomjoon Kim</a>
-              </p>
-
-              <div class="about-bio">
-                <p>
-                  I am an undergraduate research intern at
-                  <a href="https://www.hugelab.org/" target="_blank" rel="noopener">HuGeLab (KAIST AI Graduate School)</a>,
-                  working on humanoid robot learning. My current research focuses on locomotion, whole-body control,
-                  and developing robots that can robustly navigate and interact in complex, unstructured environments.
-                </p>
-                <p>
-                  Broadly, I aim to build scalable and generalizable learning methods for embodied systems —
-                  methods that transfer across tasks, environments, and embodiments, allowing robots to acquire
-                  useful behaviors from limited data.
-                </p>
-              </div>
-
-              <div class="about-tags">
-                <span class="tag">Humanoid Robot Learning</span>
-                <span class="tag">Loco-manipulation</span>
-                <span class="tag">Whole-body Control</span>
-                <span class="tag">Flow Policies</span>
-                <span class="tag">Offline RL</span>
-              </div>
-
-              <div class="about-edu">
-                <strong>Yonsei University</strong>, Underwood International College &nbsp;·&nbsp;
-                B.S. Candidate in Computer Science &amp; Nano Science and Engineering
-              </div>
+            <!-- Right: photo -->
+            <div class="about-photo-col">
+              <img src="assets/content/about/jinha.jpg" alt="Jinha Choi" class="about-photo"/>
             </div>
-
           </div>
         </div>
       </section>
@@ -131,10 +118,17 @@
 
           <ul class="news-list">
             <li class="news-item">
+              <span class="news-date">Sep 2026</span>
+              <span class="news-text">
+                Started research internship at <strong>RoPhi Lab</strong>, Yonsei University, working on high-DoF
+                dexterous manipulation with <strong>Prof. Yonghyeon Lee</strong>.
+              </span>
+            </li>
+            <li class="news-item">
               <span class="news-date">Jun 2026</span>
               <span class="news-text">
-                Started research internship at <strong>KAIST HuGeLab</strong>, working on humanoid robot learning
-                with Prof. Beomjoon Kim.
+                Started summer internship at <strong>KAIST HuGeLab</strong>, working on humanoid robot learning
+                with <strong>Prof. Beomjoon Kim</strong>.
               </span>
             </li>
             <li class="news-item">
@@ -147,22 +141,22 @@
             <li class="news-item">
               <span class="news-date">Jan 2026</span>
               <span class="news-text">
-                Started research internship at <strong>DILLAB, Yonsei University</strong>, working on
-                multimodal flow policies and offline RL with Prof. Jongmin Lee.
+                Started research internship at <strong>DILLAB</strong>, Yonsei University, working on
+                multimodal flow policies and offline RL with <strong>Prof. Jongmin Lee</strong>.
               </span>
             </li>
             <li class="news-item">
               <span class="news-date">Jul 2025</span>
               <span class="news-text">
-                Started research internship at <strong>RLLAB, Yonsei University</strong>, working on humanoid
-                loco-manipulation with Prof. Youngwoon Lee.
+                Started research internship at <strong>RLLAB</strong>, Yonsei University, working on humanoid
+                loco-manipulation with <strong>Prof. Youngwoon Lee</strong>.
               </span>
             </li>
             <li class="news-item">
               <span class="news-date">May 2025</span>
               <span class="news-text">
                 <em>"When AI Co-Scientists Fail: SPOT"</em> — a benchmark for automated verification of scientific
-                research — available on <strong>arXiv</strong> (contributing co-author).
+                research — available on arXiv (contributing co-author).
               </span>
             </li>
           </ul>
@@ -180,10 +174,7 @@
             <!-- Paper 1: Flow Policy -->
             <article class="pub-item">
               <div class="pub-img-col">
-                <div class="pub-placeholder">
-                  <span class="pub-venue-badge">NeurIPS</span>
-                  <span class="pub-status-badge">2026 · Under Review</span>
-                </div>
+                <img src="assets/content/publications/OptiFlow.png" alt="OptiFlow paper preview" class="pub-img">
               </div>
               <div class="pub-info">
                 <p class="pub-title">
@@ -192,12 +183,12 @@
                 <p class="pub-authors">
                   <strong>Jinha Choi</strong><sup>*</sup>, Jaehun Shon<sup>*</sup>, Jongwook Jeon, Jongmin Lee
                 </p>
-                <p class="pub-meta">
-                  <em>NeurIPS 2026 Conference Submission</em> &nbsp;·&nbsp; Co-first author
-                </p>
-                <div class="pub-links">
-                  <span class="pub-chip pub-chip-disabled">arXiv</span>
-                  <span class="pub-chip pub-chip-disabled">Paper</span>
+                <div class="pub-meta-row">
+                  <span class="pub-venue pub-venue-featured">NeurIPS 2026</span>
+                  <div class="pub-links">
+                    <span class="pub-link pub-link-disabled">Paper</span>
+                    <span class="pub-link pub-link-disabled">Code</span>
+                  </div>
                 </div>
               </div>
             </article>
@@ -205,7 +196,7 @@
             <!-- Paper 2: SPOT -->
             <article class="pub-item">
               <div class="pub-img-col">
-                <img src="assets/content/publications/1-img.png" alt="SPOT benchmark" class="pub-img">
+                <img src="assets/content/publications/SPOT.png" alt="SPOT benchmark" class="pub-img">
               </div>
               <div class="pub-info">
                 <p class="pub-title">
@@ -215,12 +206,13 @@
                   Guijin Son, Jiwoo Hong, Honglu Fan, Heejeong Nam, Hyunwoo Ko, Seungwon Lim,
                   Jinyeop Song, <strong>Jinha Choi</strong>, Gonçalo Paulo, Youngjae Yu, Stella Biderman
                 </p>
-                <p class="pub-meta">
-                  <em>arXiv</em> &nbsp;·&nbsp; Contributing co-author
-                </p>
-                <div class="pub-links">
-                  <a class="pub-chip" href="https://arxiv.org/abs/2505.11855" target="_blank" rel="noopener">arXiv</a>
-                  <a class="pub-chip" href="assets/content/publications/pub1.pdf" target="_blank" rel="noopener">Paper</a>
+                <div class="pub-meta-row">
+                  <span class="pub-venue">arXiv</span>
+                  <div class="pub-links">
+                    <a class="pub-link" href="https://arxiv.org/abs/2505.11855" target="_blank" rel="noopener">Paper</a>
+                    <a class="pub-link" href="https://huggingface.co/datasets/amphora/SPOT-MetaData" target="_blank" rel="noopener">Hugging Face</a>
+                    <a class="pub-link" href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=HBGZwBkAAAAJ&amp;citation_for_view=HBGZwBkAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">Google Scholar</a>
+                  </div>
                 </div>
               </div>
             </article>
@@ -229,160 +221,184 @@
         </div>
       </section>
 
-      <!-- ═══════════════════ EXPERIENCE / TIMELINE ═══════════════════ -->
-      <section id="research" class="section bg-gray">
+      <!-- ═══════════════════ EXPERIENCE ═══════════════════ -->
+      <section id="experience" class="section bg-gray">
         <div class="section-inner">
           <h2 class="section-title">Experience</h2>
           <div class="section-rule"></div>
 
-          <!-- All entries in one flat container for a continuous vertical line -->
+          <!-- Project-focused entries; media placeholders are ready for videos or GIFs. -->
           <div class="tl-entries">
 
-            <div class="tl-entry tl-research">
-              <div class="tl-year">2026</div>
+            <div class="tl-entry">
+              <div class="tl-media-frame">
+                <video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="Humanoid locomotion deployment demonstration">
+                  <source src="assets/content/experience/web/humanoid-deployment.mp4" type="video/mp4">
+                </video>
+              </div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
-                    <p class="tl-org">HuGeLab, KAIST AI Graduate School</p>
-                    <p class="tl-role">Research Intern &nbsp;·&nbsp; Advised by <a href="https://beomjoonkim.github.io" target="_blank" rel="noopener">Prof. Beomjoon Kim</a></p>
+                    <p class="tl-org">Humanoid Deployment — Locomotion</p>
+                    <p class="tl-role">Advised by <a href="https://beomjoonkim.github.io" target="_blank" rel="noopener">Prof. Beomjoon Kim</a></p>
                   </div>
-                  <span class="tl-date">Jun 2026 – Present</span>
+                  <span class="tl-date">Jul 2026</span>
                 </div>
                 <p class="tl-desc">
-                  Working on humanoid robot learning with emphasis on locomotion, whole-body control, and robust
-                  behavior in complex environments. Developing learning-based approaches that enable humanoid
-                  robots to move through diverse settings, adapt to physical conditions, and coordinate balance,
-                  navigation, and interaction. Broadly interested in scalable, generalizable methods that allow
-                  robots to acquire useful behaviors beyond narrow task-specific settings.
+                  Deployed trained locomotion policies on Unitree G1 and a custom 108 kg humanoid through simulation
+                  training, sim-to-sim validation, and sim-to-real evaluation.
                 </p>
               </div>
             </div>
 
-            <div class="tl-entry tl-research">
-              <div class="tl-year">2026</div>
+            <div class="tl-entry">
+              <div class="tl-media-frame">
+                <video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="Franka Panda teleoperation demonstration">
+                  <source src="assets/content/experience/web/franka-teleoperation.mp4" type="video/mp4">
+                </video>
+              </div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
-                    <p class="tl-org">DILLAB, Yonsei University</p>
-                    <p class="tl-role">Research Intern &nbsp;·&nbsp; Advised by Prof. Jongmin Lee</p>
+                    <p class="tl-org">Franka Panda Teleoperation Data Collection</p>
+                    <p class="tl-role">Advised by <a href="https://beomjoonkim.github.io" target="_blank" rel="noopener">Prof. Beomjoon Kim</a></p>
                   </div>
-                  <span class="tl-date">Jan – Jun 2026</span>
+                  <span class="tl-date">Jul 2026</span>
                 </div>
                 <p class="tl-desc">
-                  Developed efficient multimodal flow policies via value-weighted optimal transport for offline
-                  reinforcement learning. Learned value-aware multi-step reference policies from offline datasets
-                  and distilled them into one-step target policies. Used entropic optimal transport over action
-                  samples to improve multimodal policy distillation, achieving strong performance across diverse
-                  benchmark tasks. This work resulted in a NeurIPS 2026 submission.
+                  Integrated a Franka Panda with a 3D mouse, Touch haptic device, and Meta Quest for teleoperated
+                  demonstration collection.
                 </p>
               </div>
             </div>
 
-            <div class="tl-entry tl-research">
-              <div class="tl-year">2025</div>
+            <div class="tl-entry">
+              <div class="tl-media-frame">
+                <video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="Humanoid fixed-base manipulation demonstration">
+                  <source src="assets/content/experience/web/humanoid-manipulation.mp4" type="video/mp4">
+                </video>
+              </div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
-                    <p class="tl-org">RLLAB, Yonsei University</p>
-                    <p class="tl-role">Research Intern &nbsp;·&nbsp; Advised by Prof. Youngwoon Lee</p>
+                    <p class="tl-org">Humanoid Fixed-Base Manipulation</p>
+                    <p class="tl-role">Advised by Prof. Youngwoon Lee</p>
                   </div>
-                  <span class="tl-date">Jul – Dec 2025</span>
+                  <span class="tl-date">Mar – Jun 2026</span>
                 </div>
                 <p class="tl-desc">
-                  Built and analyzed baseline pipelines for humanoid loco-manipulation in simulation, including
-                  motion-prior training from retargeted human-motion datasets. Authored an undergraduate term
-                  paper assessing retargeting methodology and its effects on learned motion quality and stability.
-                  Studied reusable motion components as a path toward better task transfer.
+                  Investigated PPO exploration limits for humanoid fixed-base manipulation in massively parallel
+                  simulation. Evaluated PPO variants, including SAPG and EPO, against standard PPO and analyzed
+                  methods for improving exploration.
                 </p>
               </div>
             </div>
 
-            <div class="tl-entry tl-research">
-              <div class="tl-year">2024</div>
+            <div class="tl-entry">
+              <div class="tl-media-frame">
+                <video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="A1-Challenge autonomous driving demonstration">
+                  <source src="assets/content/experience/web/a1-challenge.mp4" type="video/mp4">
+                </video>
+              </div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
-                    <p class="tl-org">MIRLAB, Yonsei University</p>
-                    <p class="tl-role">Research Intern &nbsp;·&nbsp; Advised by Prof. Youngjae Yu</p>
+                    <p class="tl-org">A1-Challenge Autonomous Driving Competition</p>
+                    <p class="tl-role">Qualified in Nov 2025 &nbsp;·&nbsp; 4th Place &nbsp;·&nbsp; Ministry of Trade and KIAPI</p>
                   </div>
-                  <span class="tl-date">Sep – Dec 2024</span>
+                  <span class="tl-date">Mar – May 2026</span>
                 </div>
                 <p class="tl-desc">
-                  Trained in lab workflows and research practices for robot learning. Studied multi-modal learning
-                  and built familiarity with Isaac Sim for RL environments. Contributed to an LLM benchmarking
-                  study (SPOT) by processing and labeling datasets for experiments evaluating LLMs' ability to
-                  assess scientific papers.
+                  Developed an end-to-end racing policy in the MORAI simulator. Built behavioral-cloning and DAgger
+                  baselines using targeted corner-case data, then explored reinforcement learning to improve
+                  robustness and driving performance.
                 </p>
               </div>
             </div>
 
-            <!-- Extra entries: hidden by default, shown on toggle -->
-            <div class="tl-entry tl-other tl-extra-entry">
-              <div class="tl-year">2023</div>
+            <div class="tl-entry">
+              <div class="tl-media-frame">
+                <video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="Physical AI robotics hackathon demonstration">
+                  <source src="assets/content/experience/web/physical-ai-hackathon.mp4" type="video/mp4">
+                </video>
+              </div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
-                    <p class="tl-org">Korea Defense Intelligence Command</p>
-                    <p class="tl-role">Translator / Interpreter &nbsp;·&nbsp; Mandatory Military Service</p>
+                    <p class="tl-org">Physical AI Robotics Hackathon — Single Arm Manipulation</p>
+                    <p class="tl-role">Kernel Academy and Doosan Robotics</p>
+                  </div>
+                  <span class="tl-date">Mar 2026</span>
+                </div>
+                <p class="tl-desc">
+                  Built a speech-guided pick-and-place pipeline using a Doosan E0509 arm, RGB-D sensing, Whisper,
+                  SAM2, GPT-4o-based reasoning, and ROS2. Added calibrated 3D localization, task verification, and
+                  error-recovery logic.
+                </p>
+              </div>
+            </div>
+
+            <div class="tl-entry">
+              <div class="tl-media-frame">
+                <img class="tl-media tl-media-standard" src="assets/content/experience/image inpainting.png" alt="Language-conditioned image inpainting project">
+              </div>
+              <div class="tl-body">
+                <div class="tl-header">
+                  <div>
+                    <p class="tl-org">Language-Conditioned Image Inpainting with LLMs and Diffusion Models</p>
+                    <p class="tl-role">OUTTA AI Bootcamp Project</p>
+                  </div>
+                  <span class="tl-date">Jul – Aug 2024</span>
+                </div>
+                <p class="tl-desc">
+                  Developed a language-conditioned image editing pipeline using a pretrained LLM to extract clothing
+                  attributes, semantic segmentation to localize garments, and diffusion-based inpainting to
+                  synthesize the specified appearance.
+                </p>
+              </div>
+            </div>
+
+            <div class="tl-entry">
+              <div class="tl-media-frame tl-media-frame-kdic">
+                <img class="tl-media tl-media-standard tl-media-kdic" src="assets/content/experience/military.jpg" alt="Korea Defense Intelligence Command military service">
+              </div>
+              <div class="tl-body">
+                <div class="tl-header">
+                  <div>
+                    <p class="tl-org">Korea Defense Intelligence Command — Translator</p>
+                    <p class="tl-role">Military Service</p>
                   </div>
                   <span class="tl-date">Mar 2023 – Sep 2024</span>
                 </div>
                 <p class="tl-desc">
-                  Completed military service as a translator and interpreter supporting intelligence operations.
-                  Translated and interpreted classified documents and meetings for KDIC and partner agencies
-                  including NIS, NGA (U.S.), and several allied counterparts.
+                  Translated classified documents and interpreted classified meetings for KDIC and partner agencies,
+                  including the National Intelligence Service and the U.S. National Geospatial-Intelligence Agency.
                 </p>
               </div>
             </div>
 
-            <div class="tl-entry tl-other tl-extra-entry">
-              <div class="tl-year">2021</div>
-              <div class="tl-body">
-                <div class="tl-header">
-                  <div>
-                    <p class="tl-org">Yonsei University, Underwood International College</p>
-                    <p class="tl-role">B.S. Candidate — Computer Science &amp; Nano Science and Engineering</p>
-                  </div>
-                  <span class="tl-date">Mar 2021 – Present</span>
-                </div>
+            <div class="tl-entry">
+              <div class="tl-media-frame tl-media-frame-vex">
+                <video class="tl-media" autoplay muted loop playsinline preload="metadata" aria-label="VEX Robotics World Championship demonstration">
+                  <source src="assets/content/experience/web/vex-world-championship.mp4" type="video/mp4">
+                </video>
               </div>
-            </div>
-
-            <div class="tl-entry tl-other tl-extra-entry">
-              <div class="tl-year">2017</div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
-                    <p class="tl-org">VEX Robotics — Team 1010B, WVSS</p>
-                    <p class="tl-role">Team Lead &nbsp;·&nbsp; VEX Robotics Competition</p>
+                    <p class="tl-org">VEX Robotics — World Championship</p>
+                    <p class="tl-role">Team Lead, 1010B, WVSS Robotics</p>
                   </div>
                   <span class="tl-date">Sep 2017 – Jun 2020</span>
                 </div>
                 <p class="tl-desc">
-                  Led Team 1010B through three competition seasons (Starstruck, In the Zone, Turning Point).
-                  Directed the full robot-development cycle — game strategy, mechanical and electrical design,
-                  programming autonomous routines, and competitive driving. Won 1st place at the BC Provincial
-                  Championship and advanced to the VEX Robotics World Championship as a Science Division Finalist.
+                  Led a 12-member team through strategy, mechanical and electrical design, programming, autonomous
+                  control, and competitive driving across three VEX Robotics seasons, including the World Championship.
                 </p>
               </div>
             </div>
 
-            <div class="tl-entry tl-other tl-extra-entry">
-              <div class="tl-year">2014</div>
-              <div class="tl-body">
-                <div class="tl-header">
-                  <div>
-                    <p class="tl-org">West Vancouver Secondary School, Canada</p>
-                    <p class="tl-role">International Baccalaureate Diploma</p>
-                  </div>
-                  <span class="tl-date">Sep 2014 – Jun 2020</span>
-                </div>
-              </div>
-            </div>
-
           </div><!-- /tl-entries -->
-
-          <button class="tl-toggle" id="tlToggle" type="button">Show more</button>
 
         </div>
       </section>
@@ -394,6 +410,18 @@
           <div class="section-rule"></div>
 
           <div class="awards-list">
+
+            <div class="award-row">
+              <div class="award-meta"><span class="award-year">2026</span></div>
+              <div class="award-body">
+                <p class="award-title">Hyundai NGV Robotics Track H-Mobility Class Certificate</p>
+                <p class="award-sub">Mar – Jul 2026 &nbsp;·&nbsp; Hyundai NGV</p>
+                <p class="award-desc">
+                  Completed Hyundai's Robotics Track, a program focused on robotics and robot learning, and
+                  received the H-Mobility certificate from Hyundai.
+                </p>
+              </div>
+            </div>
 
             <div class="award-row">
               <div class="award-meta"><span class="award-year">2026</span></div>
@@ -413,23 +441,11 @@
               <div class="award-meta"><span class="award-year">2024</span></div>
               <div class="award-body">
                 <p class="award-title">Top Award — Korea Defense Intelligence Command AI Security Competition</p>
-                <p class="award-sub">Awarded by Commander Sangho Moon, KDIC</p>
+                <p class="award-sub">Awarded by Major General Sangho Moon (OF-7), Commander, KDIC</p>
                 <p class="award-desc">
                   Proposed an on-device AI framework for military systems with partial internet exposure,
                   designed to support operational convenience while strengthening protection against security
                   vulnerabilities and malicious misuse.
-                </p>
-              </div>
-            </div>
-
-            <div class="award-row">
-              <div class="award-meta"><span class="award-year">2024</span></div>
-              <div class="award-body">
-                <p class="award-title">Peer Mentor — Yonsei–Nexon RC Creative Platform</p>
-                <p class="award-sub">RC Education Center, Yonsei University</p>
-                <p class="award-desc">
-                  Selected as peer mentor based on prior 1st-place performance.
-                  Guided participating teams and received an official mentoring certificate from the Dean.
                 </p>
               </div>
             </div>
@@ -493,25 +509,27 @@
 
           <div class="contact-cards">
 
-            <a class="contact-card" href="mailto:jinhac174@gmail.com">
+            <a class="contact-card" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jinhac174@gmail.com" target="_blank" rel="noopener">
               <div class="contact-card-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="4" width="20" height="16" rx="2"/>
                   <path d="M2 7l10 7 10-7"/>
                 </svg>
               </div>
-              <div class="contact-card-label">Email</div>
-              <div class="contact-card-val">jinhac174@gmail.com</div>
+              <div class="contact-card-text">
+                <div class="contact-card-label">Email</div>
+                <div class="contact-card-val">jinhac174@gmail.com</div>
+              </div>
             </a>
 
-            <a class="contact-card" href="https://github.com/jinhac174" target="_blank" rel="noopener">
+            <a class="contact-card" href="https://scholar.google.com/citations?user=HBGZwBkAAAAJ&amp;hl=en" target="_blank" rel="noopener">
               <div class="contact-card-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                </svg>
+                <img src="assets/content/contact/google scholar black.png" alt="" class="scholar-icon">
               </div>
-              <div class="contact-card-label">GitHub</div>
-              <div class="contact-card-val">github.com/jinhac174</div>
+              <div class="contact-card-text">
+                <div class="contact-card-label">Google Scholar</div>
+                <div class="contact-card-val">Jinha Choi</div>
+              </div>
             </a>
 
             <a class="contact-card" href="https://www.linkedin.com/in/jinha-choi-85202a30b/" target="_blank" rel="noopener">
@@ -520,8 +538,10 @@
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
               </div>
-              <div class="contact-card-label">LinkedIn</div>
-              <div class="contact-card-val">Jinha Choi</div>
+              <div class="contact-card-text">
+                <div class="contact-card-label">LinkedIn</div>
+                <div class="contact-card-val">Jinha Choi</div>
+              </div>
             </a>
 
             <div class="contact-card contact-card-location">
@@ -531,8 +551,10 @@
                   <circle cx="12" cy="9" r="2.5"/>
                 </svg>
               </div>
-              <div class="contact-card-label">Location</div>
-              <div class="contact-card-val">KAIST · 85 Hoegi-ro, Dongdaemun-gu<br>Seoul, Republic of Korea · Bldg. #9</div>
+              <div class="contact-card-text">
+                <div class="contact-card-label">Location</div>
+                <div class="contact-card-val">50 Yonsei-Ro, Seodaemun-Gu<br>Seoul, Republic of Korea</div>
+              </div>
             </div>
 
           </div>
@@ -552,8 +574,8 @@
           <div class="footer-links">
             <a href="assets/CV.pdf" target="_blank" rel="noopener" class="footer-cv">CV</a>
 
-            <a href="https://github.com/jinhac174" target="_blank" rel="noopener" aria-label="GitHub">
-              <img src="assets/footer/github.svg" alt="GitHub" class="footer-icon">
+            <a href="https://scholar.google.com/citations?user=HBGZwBkAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+              <img src="assets/footer/google scholar black.png" alt="Google Scholar" class="footer-icon">
             </a>
             <a href="mailto:jinhac174@gmail.com" aria-label="Email">
               <img src="assets/footer/email.png" alt="Email" class="footer-icon">
@@ -585,18 +607,6 @@
 
     if (!container || !hero || !contentWrap || !nav) return;
 
-    // Timeline toggle — show/hide extra entries
-    const tlToggle  = document.getElementById('tlToggle');
-    const tlExtras  = document.querySelectorAll('.tl-extra-entry');
-    if (tlToggle && tlExtras.length) {
-      let shown = false;
-      tlToggle.addEventListener('click', () => {
-        shown = !shown;
-        tlExtras.forEach(el => el.classList.toggle('is-shown', shown));
-        tlToggle.textContent = shown ? 'Show less' : 'Show more';
-      });
-    }
-
     // Brand → scroll back to hero
     if (brandLink) {
       brandLink.addEventListener('click', (e) => {
@@ -618,9 +628,9 @@
       requestAnimationFrame(() => { container.style.scrollBehavior = prev || ''; });
     }
 
-    // Chevron → scroll to content
+    // Scroll cue → use the same native motion and snap as manual scrolling
     function scrollToContent() {
-      container.scrollTo({ top: contentWrap.offsetTop, behavior: 'smooth' });
+      contentWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     if (cue) cue.addEventListener('click', scrollToContent);
 
