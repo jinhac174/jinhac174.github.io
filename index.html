@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jinha Choi</title>
-  <meta name="description" content="Jinha Choi — Research Intern at KAIST HuGeLab. Humanoid robot learning, loco-manipulation, whole-body control.">
+  <meta name="description" content="Jinha Choi — Yonsei University. Physics-informed dexterous manipulation, humanoid learning, and reinforcement learning.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1 class="hero-name">Jinha Choi</h1>
-        <p class="hero-tagline">Dexterous Manipulation &nbsp;·&nbsp; Humanoid Learning &nbsp;·&nbsp; Embodied AI</p>
+        <p class="hero-tagline">Physics-informed Dexterous Manipulation &nbsp;·&nbsp; Humanoid Learning &nbsp;·&nbsp; Reinforcement Learning</p>
       </div>
       <button class="scroll-cue" type="button" aria-label="Scroll to content">
         <!-- Mouse scroll icon with animated wheel -->
@@ -81,8 +81,10 @@
                   I worked on real-world deployment of humanoid locomotion policies. I also worked at
                   <a href="https://dil.yonsei.ac.kr/" target="_blank" rel="noopener">DILLab</a> at Yonsei University,
                   advised by <a href="https://www.jmlee.kr/" target="_blank" rel="noopener">Prof. Jongmin Lee</a>, on
-                  efficient one-step policy extraction from multi-step behavior-cloning flow policies via optimal
-                  transport.
+                  offline reinforcement learning that distills a value-aware multi-step flow policy into an efficient
+                  one-step policy using state-wise entropic optimal transport. Earlier, at Yonsei RLLAB, advised
+                  by Prof. Youngwoon Lee, I built humanoid locomotion baselines using retargeted motion priors
+                  and studied their effects on motion quality and stability.
                 </p>
               </div>
 
@@ -178,11 +180,12 @@
               </div>
               <div class="pub-info">
                 <p class="pub-title">
-                  Learning Multimodal One-step Flow Policy via Value-weighted Optimal Transport
+                  [C1] Learning Multimodal One-step Flow Policy via Value-weighted Optimal Transport
                 </p>
                 <p class="pub-authors">
-                  <strong>Jinha Choi</strong><sup>*</sup>, Jaehun Shon<sup>*</sup>, Jongwook Jeon, Jongmin Lee
+                  Jaehun Shon<sup>*</sup>, <strong>Jinha Choi</strong><sup>*</sup>, Jongwook Jeon, Jongmin Lee
                 </p>
+                <p class="pub-authors"><sup>*</sup> Equal contribution (co-first authors).</p>
                 <div class="pub-meta-row">
                   <span class="pub-venue pub-venue-featured">NeurIPS 2026</span>
                   <div class="pub-links">
@@ -200,14 +203,14 @@
               </div>
               <div class="pub-info">
                 <p class="pub-title">
-                  When AI Co-Scientists Fail: SPOT — a Benchmark for Automated Verification of Scientific Research
+                  [P1] When AI Co-Scientists Fail: SPOT — a Benchmark for Automated Verification of Scientific Research
                 </p>
                 <p class="pub-authors">
                   Guijin Son, Jiwoo Hong, Honglu Fan, Heejeong Nam, Hyunwoo Ko, Seungwon Lim,
                   Jinyeop Song, <strong>Jinha Choi</strong>, Gonçalo Paulo, Youngjae Yu, Stella Biderman
                 </p>
                 <div class="pub-meta-row">
-                  <span class="pub-venue">arXiv</span>
+                  <span class="pub-venue">arXiv Preprint · 2025</span>
                   <div class="pub-links">
                     <a class="pub-link" href="https://arxiv.org/abs/2505.11855" target="_blank" rel="noopener">Paper</a>
                     <a class="pub-link" href="https://huggingface.co/datasets/amphora/SPOT-MetaData" target="_blank" rel="noopener">Hugging Face</a>
@@ -227,57 +230,93 @@
           <h2 class="section-title">Experience</h2>
           <div class="section-rule"></div>
 
-          <!-- Project-focused entries; media placeholders are ready for videos or GIFs. -->
+          <!-- Project details follow the CV; existing media is retained where available. -->
           <div class="tl-entries">
 
             <div class="tl-entry">
               <div class="tl-media-frame">
-                <video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="Humanoid locomotion deployment demonstration">
-                  <source src="assets/content/experience/web/humanoid-deployment.mp4" type="video/mp4">
-                </video>
+                <div class="tl-media-placeholder" role="img" aria-label="Project demo coming soon">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.3"/>
+                    <path d="m10 8 6 4-6 4V8Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Demo coming soon</span>
+                </div>
               </div>
+              <div class="tl-body">
+                <div class="tl-header">
+                  <div>
+                    <p class="tl-org">Grasping via Global Planning and Local Correction</p>
+                    <p class="tl-role">Advised by <a href="https://scholar.google.com/citations?user=jizxpZYAAAAJ&amp;hl=ko&amp;oi=ao" target="_blank" rel="noopener">Prof. Yonghyeon Lee</a></p>
+                  </div>
+                  <span class="tl-date">Oct 2026 – Present</span>
+                </div>
+                <ul class="tl-desc tl-bullets">
+                  <li>Developing a hierarchical grasping system coupling real-time global planning and control based on robot kinematics and dynamics with learning-based local correction.</li>
+                  <li>Integrating side-view and wrist-mounted visual feedback across both control levels, targeting robust grasping across diverse objects and positions.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tl-entry">
+              <div class="tl-media-frame">
+                <div class="tl-media-placeholder" role="img" aria-label="Project demo coming soon">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.3"/>
+                    <path d="m10 8 6 4-6 4V8Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Demo coming soon</span>
+                </div>
+              </div>
+              <div class="tl-body">
+                <div class="tl-header">
+                  <div>
+                    <p class="tl-org">Franka FR3 Control and Perception</p>
+                    <p class="tl-role">Advised by <a href="https://scholar.google.com/citations?user=jizxpZYAAAAJ&amp;hl=ko&amp;oi=ao" target="_blank" rel="noopener">Prof. Yonghyeon Lee</a></p>
+                  </div>
+                  <span class="tl-date">Sep – Oct 2026</span>
+                </div>
+                <ul class="tl-desc tl-bullets">
+                  <li>Implemented torque-level controllers on a Franka FR3, including gravity compensation, collision-aware control, QP-based inverse kinematics, and joint/task-space impedance control.</li>
+                  <li>Integrated a calibrated two-camera setup with point-cloud perception and visual servoing for perception-guided grasping on the physical robot.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tl-entry">
+              <div class="tl-media-frame"><video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="Humanoid Deployment — Locomotion demonstration"><source src="assets/content/experience/web/humanoid-deployment.mp4" type="video/mp4"></video></div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
                     <p class="tl-org">Humanoid Deployment — Locomotion</p>
-                    <p class="tl-role">Advised by <a href="https://beomjoonkim.github.io" target="_blank" rel="noopener">Prof. Beomjoon Kim</a></p>
+                    <p class="tl-role">Advised by <a href="https://beomjoonkim.github.io/" target="_blank" rel="noopener">Prof. Beomjoon Kim</a></p>
                   </div>
                   <span class="tl-date">Jul 2026</span>
                 </div>
-                <p class="tl-desc">
-                  Deployed trained locomotion policies on Unitree G1 and a custom 108 kg humanoid through simulation
-                  training, sim-to-sim validation, and sim-to-real evaluation.
-                </p>
+                <ul class="tl-desc tl-bullets">
+                  <li>Trained, validated, and deployed locomotion policies on the Unitree G1 and a custom 108 kg humanoid via sim-to-sim and sim-to-real evaluation.</li>
+                </ul>
               </div>
             </div>
 
             <div class="tl-entry">
-              <div class="tl-media-frame">
-                <video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="Franka Panda teleoperation demonstration">
-                  <source src="assets/content/experience/web/franka-teleoperation.mp4" type="video/mp4">
-                </video>
-              </div>
+              <div class="tl-media-frame"><video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="Franka FR3 Teleoperation Data Collection demonstration"><source src="assets/content/experience/web/franka-teleoperation.mp4" type="video/mp4"></video></div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
-                    <p class="tl-org">Franka Panda Teleoperation Data Collection</p>
-                    <p class="tl-role">Advised by <a href="https://beomjoonkim.github.io" target="_blank" rel="noopener">Prof. Beomjoon Kim</a></p>
+                    <p class="tl-org">Franka FR3 Teleoperation Data Collection</p>
+                    <p class="tl-role">Advised by <a href="https://beomjoonkim.github.io/" target="_blank" rel="noopener">Prof. Beomjoon Kim</a></p>
                   </div>
                   <span class="tl-date">Jul 2026</span>
                 </div>
-                <p class="tl-desc">
-                  Integrated a Franka Panda with a 3D mouse, Touch haptic device, and Meta Quest for teleoperated
-                  demonstration collection.
-                </p>
+                <ul class="tl-desc tl-bullets">
+                  <li>Integrated a Franka Panda with a 3D mouse, Touch haptic device, and Meta Quest for teleoperated demonstration collection.</li>
+                </ul>
               </div>
             </div>
 
             <div class="tl-entry">
-              <div class="tl-media-frame">
-                <video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="Humanoid fixed-base manipulation demonstration">
-                  <source src="assets/content/experience/web/humanoid-manipulation.mp4" type="video/mp4">
-                </video>
-              </div>
+              <div class="tl-media-frame"><video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="Humanoid Fixed-Base Manipulation demonstration"><source src="assets/content/experience/web/humanoid-manipulation.mp4" type="video/mp4"></video></div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
@@ -286,82 +325,66 @@
                   </div>
                   <span class="tl-date">Mar – Jun 2026</span>
                 </div>
-                <p class="tl-desc">
-                  Investigated PPO exploration limits for humanoid fixed-base manipulation in massively parallel
-                  simulation. Evaluated PPO variants, including SAPG and EPO, against standard PPO and analyzed
-                  methods for improving exploration.
-                </p>
+                <ul class="tl-desc tl-bullets">
+                  <li>Investigated PPO exploration limits for humanoid fixed-base manipulation in massively parallel simulation.</li>
+                  <li>Compared PPO with SAPG and EPO and analyzed methods for improving exploration.</li>
+                </ul>
               </div>
             </div>
 
             <div class="tl-entry">
-              <div class="tl-media-frame">
-                <video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="A1-Challenge autonomous driving demonstration">
-                  <source src="assets/content/experience/web/a1-challenge.mp4" type="video/mp4">
-                </video>
-              </div>
+              <div class="tl-media-frame"><video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="A1-Challenge Autonomous Driving Competition demonstration"><source src="assets/content/experience/web/a1-challenge.mp4" type="video/mp4"></video></div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
                     <p class="tl-org">A1-Challenge Autonomous Driving Competition</p>
-                    <p class="tl-role">Qualified in Nov 2025 &nbsp;·&nbsp; 4th Place &nbsp;·&nbsp; Ministry of Trade and KIAPI</p>
+                    <p class="tl-role">Ministry of Trade &amp; KIAPI</p>
                   </div>
                   <span class="tl-date">Mar – May 2026</span>
                 </div>
-                <p class="tl-desc">
-                  Developed an end-to-end racing policy in the MORAI simulator. Built behavioral-cloning and DAgger
-                  baselines using targeted corner-case data, then explored reinforcement learning to improve
-                  robustness and driving performance.
-                </p>
+                <ul class="tl-desc tl-bullets">
+                  <li>Placed 4th; qualified in Nov. 2025.</li>
+                  <li>Built behavioral-cloning and DAgger racing policies in MORAI using targeted corner-case demonstrations.</li>
+                  <li>Explored reinforcement learning to improve robustness and driving performance.</li>
+                </ul>
               </div>
             </div>
 
             <div class="tl-entry">
-              <div class="tl-media-frame">
-                <video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="Physical AI robotics hackathon demonstration">
-                  <source src="assets/content/experience/web/physical-ai-hackathon.mp4" type="video/mp4">
-                </video>
-              </div>
+              <div class="tl-media-frame"><video class="tl-media tl-media-standard" autoplay muted loop playsinline preload="metadata" aria-label="Physical AI Robotics Hackathon — Arm Manipulation demonstration"><source src="assets/content/experience/web/physical-ai-hackathon.mp4" type="video/mp4"></video></div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
-                    <p class="tl-org">Physical AI Robotics Hackathon — Single Arm Manipulation</p>
-                    <p class="tl-role">Kernel Academy and Doosan Robotics</p>
+                    <p class="tl-org">Physical AI Robotics Hackathon — Arm Manipulation</p>
+                    <p class="tl-role">Kernel Academy &amp; Doosan Robotics</p>
                   </div>
                   <span class="tl-date">Mar 2026</span>
                 </div>
-                <p class="tl-desc">
-                  Built a speech-guided pick-and-place pipeline using a Doosan E0509 arm, RGB-D sensing, Whisper,
-                  SAM2, GPT-4o-based reasoning, and ROS2. Added calibrated 3D localization, task verification, and
-                  error-recovery logic.
-                </p>
+                <ul class="tl-desc tl-bullets">
+                  <li>Built a speech-guided pick-and-place pipeline with a Doosan E0509, RGB-D sensing, Whisper, SAM2, GPT-4o, and ROS2.</li>
+                  <li>Implemented calibrated 3D localization, task verification, and error recovery for autonomous execution.</li>
+                </ul>
               </div>
             </div>
 
             <div class="tl-entry">
-              <div class="tl-media-frame">
-                <img class="tl-media tl-media-standard" src="assets/content/experience/image inpainting.png" alt="Language-conditioned image inpainting project">
-              </div>
+              <div class="tl-media-frame"><img class="tl-media tl-media-standard" src="assets/content/experience/image inpainting.png" alt="Image Inpainting with LLMs and Diffusion Models"></div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
-                    <p class="tl-org">Language-Conditioned Image Inpainting with LLMs and Diffusion Models</p>
-                    <p class="tl-role">OUTTA AI Bootcamp Project</p>
+                    <p class="tl-org">Image Inpainting with LLMs and Diffusion Models</p>
+                    <p class="tl-role">OUTTA AI Bootcamp</p>
                   </div>
                   <span class="tl-date">Jul – Aug 2024</span>
                 </div>
-                <p class="tl-desc">
-                  Developed a language-conditioned image editing pipeline using a pretrained LLM to extract clothing
-                  attributes, semantic segmentation to localize garments, and diffusion-based inpainting to
-                  synthesize the specified appearance.
-                </p>
+                <ul class="tl-desc tl-bullets">
+                  <li>Developed a language-conditioned image editing pipeline combining LLM-based attribute extraction, semantic segmentation, and diffusion-based inpainting.</li>
+                </ul>
               </div>
             </div>
 
             <div class="tl-entry">
-              <div class="tl-media-frame tl-media-frame-kdic">
-                <img class="tl-media tl-media-standard tl-media-kdic" src="assets/content/experience/military.jpg" alt="Korea Defense Intelligence Command military service">
-              </div>
+              <div class="tl-media-frame tl-media-frame-kdic"><img class="tl-media tl-media-standard tl-media-kdic" src="assets/content/experience/military.jpg" alt="Korea Defense Intelligence Command — Translator"></div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
@@ -370,31 +393,26 @@
                   </div>
                   <span class="tl-date">Mar 2023 – Sep 2024</span>
                 </div>
-                <p class="tl-desc">
-                  Translated classified documents and interpreted classified meetings for KDIC and partner agencies,
-                  including the National Intelligence Service and the U.S. National Geospatial-Intelligence Agency.
-                </p>
+                <ul class="tl-desc tl-bullets">
+                  <li>Translated classified documents and interpreted classified meetings for KDIC and partner agencies, including the National Intelligence Service and the U.S. National Geospatial-Intelligence Agency.</li>
+                </ul>
               </div>
             </div>
 
             <div class="tl-entry">
-              <div class="tl-media-frame tl-media-frame-vex">
-                <video class="tl-media" autoplay muted loop playsinline preload="metadata" aria-label="VEX Robotics World Championship demonstration">
-                  <source src="assets/content/experience/web/vex-world-championship.mp4" type="video/mp4">
-                </video>
-              </div>
+              <div class="tl-media-frame tl-media-frame-vex"><video class="tl-media" autoplay muted loop playsinline preload="metadata" aria-label="VEX Robotics demonstration"><source src="assets/content/experience/web/vex-world-championship.mp4" type="video/mp4"></video></div>
               <div class="tl-body">
                 <div class="tl-header">
                   <div>
-                    <p class="tl-org">VEX Robotics — World Championship</p>
+                    <p class="tl-org">VEX Robotics</p>
                     <p class="tl-role">Team Lead, 1010B, WVSS Robotics</p>
                   </div>
                   <span class="tl-date">Sep 2017 – Jun 2020</span>
                 </div>
-                <p class="tl-desc">
-                  Led a 12-member team through strategy, mechanical and electrical design, programming, autonomous
-                  control, and competitive driving across three VEX Robotics seasons, including the World Championship.
-                </p>
+                <ul class="tl-desc tl-bullets">
+                  <li>Led a 12-member team across three seasons, overseeing strategy, mechanical and electrical design, programming, autonomous control, and competitive driving.</li>
+                  <li>Earned first-place finishes at regional and British Columbia provincial competitions and advanced to the VEX Robotics World Championship.</li>
+                </ul>
               </div>
             </div>
 
@@ -415,25 +433,17 @@
               <div class="award-meta"><span class="award-year">2026</span></div>
               <div class="award-body">
                 <p class="award-title">Hyundai NGV Robotics Track H-Mobility Class Certificate</p>
-                <p class="award-sub">Mar – Jul 2026 &nbsp;·&nbsp; Hyundai NGV</p>
-                <p class="award-desc">
-                  Completed Hyundai's Robotics Track, a program focused on robotics and robot learning, and
-                  received the H-Mobility certificate from Hyundai.
-                </p>
+                <p class="award-sub">Mar – Jul 2026 · Hyundai NGV</p>
+                <p class="award-desc">Completed Hyundai’s Robotics Track in robotics and robot learning and received the H-Mobility Class Certificate.</p>
               </div>
             </div>
 
             <div class="award-row">
               <div class="award-meta"><span class="award-year">2026</span></div>
               <div class="award-body">
-                <p class="award-title">2nd Place — Physical AI 26H Robotics Hackathon</p>
-                <p class="award-sub">Kernel Academy &amp; Doosan Robotics</p>
-                <p class="award-desc">
-                  Built a natural-language-guided pick-and-place system on a Doosan E0509 robot arm using
-                  RGB-D sensing, vision-language reasoning (GPT-4o, SAM2, Whisper), and ROS2 execution.
-                  Contributed to Isaac Sim environment setup, camera calibration, domain randomization, and
-                  real-robot transfer. Won 2nd place among university teams.
-                </p>
+                <p class="award-title">2nd Place — Physical AI Robotics Hackathon</p>
+                <p class="award-sub">Mar 2026 · Kernel Academy &amp; Doosan Robotics</p>
+                <p class="award-desc">Presented a manipulation pipeline and demonstrated perception-guided grasping at the Kernel Academy hackathon.</p>
               </div>
             </div>
 
@@ -442,19 +452,16 @@
               <div class="award-body">
                 <p class="award-title">Top Award — Korea Defense Intelligence Command AI Security Competition</p>
                 <p class="award-sub">Awarded by Major General Sangho Moon (OF-7), Commander, KDIC</p>
-                <p class="award-desc">
-                  Proposed an on-device AI framework for military systems with partial internet exposure,
-                  designed to support operational convenience while strengthening protection against security
-                  vulnerabilities and malicious misuse.
-                </p>
+                <p class="award-desc">Proposed an on-device AI framework for military systems with partial internet exposure, designed to support operational convenience while strengthening protection against security vulnerabilities and malicious misuse.</p>
               </div>
             </div>
 
             <div class="award-row">
               <div class="award-meta"><span class="award-year">2022</span></div>
               <div class="award-body">
-                <p class="award-title">Honor Roll</p>
-                <p class="award-sub">Awarded by the President of Yonsei University</p>
+                <p class="award-title">Honor Roll — Yonsei University</p>
+                <p class="award-sub">Jul 2022</p>
+                <p class="award-desc">Recognized for academic performance in the top 3%.</p>
               </div>
             </div>
 
@@ -462,24 +469,17 @@
               <div class="award-meta"><span class="award-year">2021</span></div>
               <div class="award-body">
                 <p class="award-title">1st Place — Yonsei–Nexon RC Creative Platform</p>
-                <p class="award-sub">RC Education Center, Yonsei University &nbsp;·&nbsp; 1st of 90 teams &nbsp;·&nbsp; $10K prize</p>
-                <p class="award-desc">
-                  Led a 5-member team in a university-wide social-impact startup competition co-hosted with Nexon.
-                  Designed an automated revolving-door assistance system for people with mobility impairments —
-                  developed a 3D-printed prototype and presented the design rationale to judges and organizers.
-                </p>
+                <p class="award-sub">Mar – Dec 2021</p>
+                <p class="award-desc">Led a five-member team to develop an automated revolving-door assistance system for people with mobility impairments; ranked 1st of 90 teams and received a $10,000 award.</p>
               </div>
             </div>
 
             <div class="award-row">
               <div class="award-meta"><span class="award-year">2019</span></div>
               <div class="award-body">
-                <p class="award-title">Science Division Finalist — VEX Robotics World Championship</p>
-                <p class="award-sub">Kentucky, USA &nbsp;·&nbsp; Team 1010B &nbsp;·&nbsp; 600 qualified teams worldwide</p>
-                <p class="award-desc">
-                  Ranked as Science Division finalist (top finish within a 100-team division), advancing to the
-                  division final against the top teams from other divisions.
-                </p>
+                <p class="award-title">Division Finalist — VEX Robotics World Championship</p>
+                <p class="award-sub">Nov 2019 · Kentucky, USA</p>
+                <p class="award-desc">Reached the Science Division final in a 100-team division within a field of 600 qualified teams.</p>
               </div>
             </div>
 
@@ -487,12 +487,8 @@
               <div class="award-meta"><span class="award-year">2019</span></div>
               <div class="award-body">
                 <p class="award-title">1st Place — VEX Robotics Canada BC Provincial Championship</p>
-                <p class="award-sub">British Columbia, Canada &nbsp;·&nbsp; Team 1010B, WVSS Robotics</p>
-                <p class="award-desc">
-                  Led Team 1010B to 1st place at BC Provincials, earning qualification to the VEX Robotics
-                  World Championship. Directed the full development cycle — game strategy, mechanical and
-                  electrical design, programming, and competitive driving — across three competition seasons.
-                </p>
+                <p class="award-sub">Jun 2019</p>
+                <p class="award-desc">Won the British Columbia Provincial Championship and qualified for the VEX Robotics World Championship.</p>
               </div>
             </div>
 
