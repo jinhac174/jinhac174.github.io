@@ -971,8 +971,8 @@ a.contact-card:hover .contact-card-val { color: var(--accent); }
 
 /* Temporary frames for projects awaiting demo media. */
 .tl-media-placeholder {
-  width: 155px;
-  min-height: 220px;
+  width: min(155px, 100%);
+  aspect-ratio: 540 / 664;
   display: flex;
   flex-direction: column;
   align-items: center;
