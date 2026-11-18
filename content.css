@@ -403,9 +403,11 @@
 .pub-venue {
   font-family: var(--font-sans);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--c-500);
 }
+
+.pub-venue strong { font-weight: 700; }
 
 .pub-venue-featured {
   font-weight: 700;
